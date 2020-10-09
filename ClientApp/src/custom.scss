@@ -1,5 +1,40 @@
+$violet: #231942;
+$navy: #5e548e;
+$purple: #9f86c0;
+$lilac: #be95c4;
+$pinklav: #e0b1cb;
+
 :root {
   font: 16px / 1 sans-serif;
+}
+.title {
+  ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    align-items: center;
+  }
+}
+.social {
+  ul {
+    display: flex;
+    margin: 0;
+    list-style: none;
+    align-items: center;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: $navy;
+  background-clip: padding-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 html {
@@ -9,4 +44,20 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+}
+main {
+  background-color: $purple;
+}
+footer {
+  background-color: $navy;
+}
+section {
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    margin: auto;
+    list-style: none;
+  }
 }
