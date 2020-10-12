@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import logo from '../images/onlocation.png'
 import map from '../images/map.png'
+import { Link } from 'react-router-dom'
 
-export function MovieLanding() {
+export function Locations() {
   const [locations, setLocations] = useState([])
   const [filterText, setFilterText] = useState('')
 
@@ -26,6 +27,11 @@ export function MovieLanding() {
   return (
     <>
       <main>
+        <nav>
+          <Link to="/new">
+            <i className="fa fa-plus"></i> Location
+          </Link>
+        </nav>
         <div>
           <img className="logo" src={logo} height="200" width="250" />
           <h1>Locations</h1>

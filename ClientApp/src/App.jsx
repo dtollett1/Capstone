@@ -1,7 +1,9 @@
 import React from 'react'
+import { Switch, Route } from 'react-router-dom'
+
 import './custom.scss'
 import { Home } from './pages/Home'
-import { MovieLanding } from './pages/MovieLanding'
+import { Locations } from './pages/Locations'
 import { NewLocation } from './pages/NewLocation'
 
 export function App() {
@@ -19,7 +21,14 @@ export function App() {
           </ul>
         </div>
       </header>
-      <MovieLanding />
+      <Switch>
+        <Route exact path="/">
+          <Locations />
+        </Route>
+        <Route exact path="/new">
+          <NewLocation />
+        </Route>
+      </Switch>
       <footer>
         <p>home</p>
         <p>contact us</p>

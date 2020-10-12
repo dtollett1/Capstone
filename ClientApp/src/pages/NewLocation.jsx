@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 export function NewLocation() {
   const [newLocation, setNewLocation] = useState({
@@ -7,7 +8,7 @@ export function NewLocation() {
     address: '',
     telephone: '',
   })
-
+  const history = useHistory()
   function handleStringFieldChange(event) {
     const value = event.target.value
     const fieldName = event.target.name
@@ -24,6 +25,8 @@ export function NewLocation() {
       body: JSON.stringify(newLocation),
     })
     const json = await response.json()
+
+    history.push('/')
   }
 
   return (
