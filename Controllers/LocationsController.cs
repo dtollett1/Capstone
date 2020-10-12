@@ -32,11 +32,16 @@ namespace CapstoneProject.Controllers
         // Returns a list of all your Locations
         //
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
+        public async Task<ActionResult<IEnumerable<Location>>> GetLocations(string filter)
         {
-            // Uses the database context in `_context` to request all of the Locations, sort
-            // them by row id and return them as a JSON array.
-            return await _context.Locations.OrderBy(row => row.Id).ToListAsync();
+            if (filter == null)
+            {
+                return await _context.Locations.ToListAsync();
+            }
+            else
+            {
+                return await _context.Locations.Where(location => location.Name.ToLower().Contains(filter.ToLower())).ToListAsync();
+            }
         }
 
         // GET: api/Locations/5
