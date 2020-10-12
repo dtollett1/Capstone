@@ -40,8 +40,9 @@ namespace CapstoneProject.Controllers
             }
             else
             {
-                return await _context.Locations.Where(location => location.Name.ToLower().Contains(filter.ToLower())).
-                OrderByDescending(location => location.Id).ToListAsync();
+                return await _context.Locations.Where(location => location.Name.ToLower().Contains(filter.ToLower()) ||
+                                                                  location.Address.ToLower().Contains(filter.ToLower())).
+                                                                  OrderByDescending(location => location.Id).ToListAsync();
             }
         }
 

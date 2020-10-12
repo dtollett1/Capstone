@@ -5,6 +5,7 @@ import './custom.scss'
 import { Home } from './pages/Home'
 import { Locations } from './pages/Locations'
 import { NewLocation } from './pages/NewLocation'
+import { LocationDetail } from './pages/LocationDetail'
 
 export function App() {
   return (
@@ -27,6 +28,9 @@ export function App() {
         </Route>
         <Route exact path="/new">
           <NewLocation />
+        </Route>
+        <Route exact path="/locations/:id">
+          <LocationDetail />
         </Route>
       </Switch>
       <footer>
