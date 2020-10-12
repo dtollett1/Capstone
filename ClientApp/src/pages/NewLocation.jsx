@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import Axios from 'axios'
 
 export function NewLocation() {
   const [newLocation, setNewLocation] = useState({
@@ -19,12 +20,11 @@ export function NewLocation() {
   async function handleFormSubmit(event) {
     event.preventDefault()
 
-    const response = await fetch('/api/Locations', {
+    const response = await Axios({
+      url: '/api/locations',
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(newLocation),
+      data: newLocation,
     })
-    const json = await response.json()
 
     history.push('/')
   }
