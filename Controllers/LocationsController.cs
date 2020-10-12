@@ -36,11 +36,12 @@ namespace CapstoneProject.Controllers
         {
             if (filter == null)
             {
-                return await _context.Locations.ToListAsync();
+                return await _context.Locations.OrderByDescending(location => location.Id).ToListAsync();
             }
             else
             {
-                return await _context.Locations.Where(location => location.Name.ToLower().Contains(filter.ToLower())).ToListAsync();
+                return await _context.Locations.Where(location => location.Name.ToLower().Contains(filter.ToLower())).
+                OrderByDescending(location => location.Id).ToListAsync();
             }
         }
 
