@@ -23,7 +23,7 @@ export function App() {
         </div>
       </header>
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/locations">
           <Locations />
         </Route>
         <Route exact path="/new">

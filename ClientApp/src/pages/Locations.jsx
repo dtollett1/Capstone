@@ -43,14 +43,18 @@ export function Locations() {
               setFilterText(event.target.value)
             }}
           />
-          {locations.map((location) => (
-            <section key={location.id}>
-              <h2>{location.name}</h2>
-              {/* <img src={map} height="200" width="200" /> */}
-              <p>{location.description}</p>
-              <p>{location.address}</p>
-            </section>
-          ))}
+          <ul className="results">
+            {locations.map((location) => (
+              <li key={location.id}>
+                <h2>
+                  <Link to={`/locations/${location.id}`}>{location.name}</Link>
+                </h2>
+                {/* <img src={map} height="200" width="200" /> */}
+                <p>{location.description}</p>
+                <address>{location.address}</address>
+              </li>
+            ))}
+          </ul>
         </div>
         <div>
           <h1>Reviews</h1>
