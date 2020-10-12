@@ -14,11 +14,23 @@ export function NewLocation() {
     const updatedLocation = { ...newLocation, [fieldName]: value }
     setNewLocation(updatedLocation)
   }
+
+  async function handleFormSubmit(event) {
+    event.preventDefault()
+
+    const response = await fetch('/api/Locations', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newLocation),
+    })
+    const json = await response.json()
+  }
+
   return (
     <>
       <main>
         <h2>Add a Location</h2>
-        <form action="#">
+        <form onSubmit={handleFormSubmit}>
           <p className="form-input">
             <label htmlFor="name">Name</label>
             <input

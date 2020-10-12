@@ -19,7 +19,7 @@ export function App() {
           </ul>
         </div>
       </header>
-      <NewLocation />
+      <MovieLanding />
       <footer>
         <p>home</p>
         <p>contact us</p>
