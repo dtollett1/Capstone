@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import Axios from 'axios'
 
 export function NewLocation() {
+  const [errorMessage, setErrorMessage] = useState()
   const [newLocation, setNewLocation] = useState({
     name: '',
     description: '',
@@ -20,13 +21,17 @@ export function NewLocation() {
   async function handleFormSubmit(event) {
     event.preventDefault()
 
-    const response = await Axios({
-      url: '/api/locations',
+    const response = await fetch('/api/Locations', {
       method: 'POST',
-      data: newLocation,
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newLocation),
     })
-
-    history.push('/')
+    const json = await response.json()
+    if (response.status === 400) {
+      setErrorMessage(Object.values(json.errors).join(' '))
+    } else {
+      history.push('/')
+    }
   }
 
   return (
@@ -34,6 +39,7 @@ export function NewLocation() {
       <main>
         <h2>Add a Location</h2>
         <form onSubmit={handleFormSubmit}>
+          {errorMessage && <p>{errorMessage}</p>}
           <p className="form-input">
             <label htmlFor="name">Name</label>
             <input
