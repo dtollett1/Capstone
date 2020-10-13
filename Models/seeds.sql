@@ -1,4 +1,4 @@
-TRUNCATE TABLE "Locations";
+TRUNCATE TABLE "Locations", "Reviews" RESTART IDENTITY;
 
 INSERT INTO "Locations" ("Name", "Description", "Address", "Telephone") VALUES ('The Brody House', 'The house featured in the production has been completely renovated, but this is still Chief Martin Brodys address.', '265 East Chop Dr Vineyard Haven, Mass.', '314-651-9791');
 INSERT INTO "Locations" ("Name", "Description", "Address", "Telephone") VALUES ('Amity Police Department', 'Where Brody Types up the "shark Attack" police report', 'South Water Street & Davis Lane Edgartown, MA 02539', '523-760-6681');
@@ -30,3 +30,5 @@ INSERT INTO "Locations" ("Name", "Description", "Address", "Telephone") VALUES (
 INSERT INTO "Locations" ("Name", "Description", "Address", "Telephone") VALUES ('Hook and Ladder 8', 'Who you gonna call?', '14 N Moore St, New York, NY 10013', '650-993-7074');
 INSERT INTO "Locations" ("Name", "Description", "Address", "Telephone") VALUES ('Grand Central Terminal', 'A transportation hub for travellers and commuters since 1913, Grand Central Terminal has been featured in numerous films such as, Carlitos way, The Avengers, and North by Northwest', '89 E 42nd St, New York, NY 10017', '715-663-5265');
 
+INSERT INTO "Reviews" ("LocationId", "CreatedAt", "Summary", "Body", "Stars") VALUES (1, '2020-01-01 14:23:55', 'Awesome', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima modi impedit quisquam sit, saepe enim placeat a vero voluptas asperiores atque laudantium in, nobis sunt blanditiis dignissimos. Deleniti, esse optio!', 3);
+INSERT INTO "Reviews" ("LocationId", "CreatedAt", "Summary", "Body", "Stars") VALUES (1, '2020-01-01 18:23:55', 'Lots to see!', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima modi impedit quisquam sit, saepe enim placeat a vero voluptas asperiores atque laudantium in, nobis sunt blanditiis dignissimos. Deleniti, esse optio!', 4);

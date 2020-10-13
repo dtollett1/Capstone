@@ -16,6 +16,7 @@ namespace CapstoneProject.Models
 
         // Add database tables here
         public DbSet<Location> Locations { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

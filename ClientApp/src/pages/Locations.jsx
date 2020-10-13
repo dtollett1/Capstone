@@ -27,9 +27,9 @@ export function Locations() {
   return (
     <>
       <main>
-        <nav>
+        <nav className="results">
           <Link to="/new">
-            <i className="fa fa-plus"></i> Location
+            <i className="fa fa-plus"></i> Add a Location
           </Link>
         </nav>
         <div>
@@ -50,6 +50,14 @@ export function Locations() {
                   <Link to={`/locations/${location.id}`}>{location.name}</Link>
                 </h2>
                 {/* <img src={map} height="200" width="200" /> */}
+                <p>
+                  <span
+                    className="stars"
+                    style={{ '--rating': 4.5 }}
+                    aria-label="Star rating of this location is 4.7 out of 5"
+                  ></span>
+                  ({location.reviews.length})
+                </p>
                 <p>{location.description}</p>
                 <address>{location.address}</address>
               </li>

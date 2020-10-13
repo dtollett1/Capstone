@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace capstoneProject.Models
@@ -11,5 +12,7 @@ namespace capstoneProject.Models
         [Required]
         public string Address { get; set; }
         public string Telephone { get; set; }
+
+        public List<Review> Reviews { get; set; }
     }
 }

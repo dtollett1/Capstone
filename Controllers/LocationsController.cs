@@ -36,13 +36,13 @@ namespace CapstoneProject.Controllers
         {
             if (filter == null)
             {
-                return await _context.Locations.OrderByDescending(location => location.Id).ToListAsync();
+                return await _context.Locations.OrderByDescending(location => location.Id).Include(location => location.Reviews).ToListAsync();
             }
             else
             {
                 return await _context.Locations.Where(location => location.Name.ToLower().Contains(filter.ToLower()) ||
                                                                   location.Address.ToLower().Contains(filter.ToLower())).
-                                                                  OrderByDescending(location => location.Id).ToListAsync();
+                                                                  OrderByDescending(location => location.Id).Include(location => location.Reviews).ToListAsync();
             }
         }
 
@@ -56,7 +56,9 @@ namespace CapstoneProject.Controllers
         public async Task<ActionResult<Location>> GetLocation(int id)
         {
             // Find the location in the database using `FindAsync` to look it up by id
-            var location = await _context.Locations.FindAsync(id);
+
+
+            var location = await _context.Locations.Include(location => location.Reviews).Where(location => location.Id == id).FirstOrDefaultAsync();
 
             // If we didn't find anything, we receive a `null` in return
             if (location == null)
