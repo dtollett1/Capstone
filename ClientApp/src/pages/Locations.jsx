@@ -27,11 +27,7 @@ export function Locations() {
   return (
     <>
       <main>
-        <nav className="results">
-          <Link to="/new">
-            <i className="fa fa-plus"></i> Add a Location
-          </Link>
-        </nav>
+        <nav className="results"></nav>
         <div>
           <img className="logo" src={logo} height="200" width="250" />
           <h1>Locations</h1>

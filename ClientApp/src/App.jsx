@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 
 import './custom.scss'
 import { Home } from './pages/Home'
@@ -10,7 +10,7 @@ import { LocationDetail } from './pages/LocationDetail'
 export function App() {
   return (
     <>
-      <header>
+      {/* <header>
         <div className="title"></div>
 
         <div className="social">
@@ -21,7 +21,21 @@ export function App() {
             <li>sign in</li>
           </ul>
         </div>
-      </header>
+      </header> */}
+      <div className="topnav" id="myTopnav">
+        <Link to="#home" className="active">
+          Home
+        </Link>
+        <Link to="/locations">Locations</Link>
+        <Link to="/new">Add a Location</Link>
+        <Link to="#contact">Movies</Link>
+        <Link to="#about">Sign In</Link>
+
+        <Link to="javascript:void(0);" className="icon" onclick="myFunction()">
+          <i className="fa fa-bars"></i>
+        </Link>
+      </div>
+
       <Switch>
         <Route exact path="/locations">
           <Locations />
@@ -33,6 +47,7 @@ export function App() {
           <LocationDetail />
         </Route>
       </Switch>
+
       <footer>
         <p>home</p>
         <p>contact us</p>
