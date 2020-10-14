@@ -29,7 +29,7 @@ export function Locations() {
       <main>
         <nav className="results"></nav>
         <div>
-          <img className="logo" src={logo} height="200" width="250" />
+          {/* <img className="logo" src={logo} height="200" width="250" /> */}
           <h1>Locations</h1>
           <input
             type="text"

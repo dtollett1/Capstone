@@ -36,8 +36,10 @@ export function LocationDetail() {
         </nav>
         <address>{location.address}</address>
         <hr />
-        <h3>Photos for {location.name} </h3>
-        {location.reviews.length > 0 && <h3>Reviews for {location.name}</h3>}
+        <h3>Photos For {location.name} </h3>
+        {location.reviews.length > 0 && (
+          <h3>Reviews htmlFor {location.name}</h3>
+        )}
         {location.reviews.length}({location.reviews.length})
         <ul className="reviews">
           {location.reviews.map((review) => (
@@ -80,58 +82,58 @@ export function LocationDetail() {
               name="star-rating"
               value="1"
             />
-            <label for="star-rating-1">1 star</label>
+            <label htmlFor="star-rating-1">1 star</label>
             <input
               id="star-rating-2"
               type="radio"
               name="star-rating"
               value="2"
             />
-            <label for="star-rating-2">2 stars</label>
+            <label htmlFor="star-rating-2">2 stars</label>
             <input
               id="star-rating-3"
               type="radio"
               name="star-rating"
               value="3"
             />
-            <label for="star-rating-3">3 stars</label>
+            <label htmlFor="star-rating-3">3 stars</label>
             <input
               id="star-rating-4"
               type="radio"
               name="star-rating"
               value="4"
             />
-            <label for="star-rating-4">4 stars</label>
+            <label htmlFor="star-rating-4">4 stars</label>
             <input
               id="star-rating-5"
               type="radio"
               name="star-rating"
               value="5"
             />
-            <label for="star-rating-5">5 stars</label>
+            <label htmlFor="star-rating-5">5 stars</label>
             <div className="star-rating">
               <label
-                for="star-rating-1"
+                htmlFor="star-rating-1"
                 aria-label="1 star"
                 title="1 star"
               ></label>
               <label
-                for="star-rating-2"
+                htmlFor="star-rating-2"
                 aria-label="2 stars"
                 title="2 stars"
               ></label>
               <label
-                for="star-rating-3"
+                htmlFor="star-rating-3"
                 aria-label="3 stars"
                 title="3 stars"
               ></label>
               <label
-                for="star-rating-4"
+                htmlFor="star-rating-4"
                 aria-label="4 stars"
                 title="4 stars"
               ></label>
               <label
-                for="star-rating-5"
+                htmlFor="star-rating-5"
                 aria-label="5 stars"
                 title="5 stars"
               ></label>
