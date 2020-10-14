@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 
 import './styles/custom.scss'
@@ -9,19 +9,30 @@ import { LocationDetail } from './pages/LocationDetail'
 import { SignIn } from './pages/SignIn'
 import { Movies } from './pages/Movies'
 import { SignUp } from './pages/SignUp'
-
+import { isLoggedIn, logout, getUser } from './auth'
+function handleLogout() {
+  logout()
+}
+const user = getUser()
 export function App() {
   return (
     <>
       <header>
         <div className="topnav" id="myTopnav">
+          {isLoggedIn() && <p>{user.fullName}</p>}
           <Link to="#home" className="active">
             Home
           </Link>
           <Link to="/locations">Locations</Link>
-          <Link to="/new">Add a Location</Link>
+          {isLoggedIn() && <Link to="/new">Add a Location</Link>}
           <Link to="/movies">Movies</Link>
-          <Link to="/signup">Sign Up</Link>
+          {isLoggedIn() || <Link to="/signup">Sign Up</Link>}
+          {isLoggedIn() || <Link to="/signin">Sign In</Link>}
+          {isLoggedIn() && (
+            <span className="link" onClick={handleLogout}>
+              Sign Out
+            </span>
+          )}
 
           <Link
             to="javascript:void(0);"
@@ -45,6 +56,9 @@ export function App() {
         </Route>
         <Route exact path="/signup">
           <SignUp />
+        </Route>
+        <Route exact path="/signin">
+          <SignIn />
         </Route>
         <Route exact path="/movies">
           <Movies />

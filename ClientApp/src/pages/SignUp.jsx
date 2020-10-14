@@ -64,7 +64,6 @@ export function SignUp() {
             name="email"
             value={newUser.email}
             onChange={handleStringFieldChange}
-            required
           />
 
           <label for="psw">
@@ -73,10 +72,9 @@ export function SignUp() {
           <input
             type="password"
             placeholder="Enter Password"
-            name="psw"
+            name="password"
             value={newUser.password}
             onChange={handleStringFieldChange}
-            required
           />
 
           <label>
