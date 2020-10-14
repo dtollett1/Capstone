@@ -15,8 +15,8 @@ export function SignIn() {
             </label>
             <input
               type="text"
-              placeholder="Enter Username"
-              name="uname"
+              placeholder="Enter Email"
+              name="email"
               required
             />
 
