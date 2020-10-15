@@ -15,38 +15,44 @@ function handleLogout() {
   logout()
 }
 const user = getUser()
+
 export function App() {
   return (
     <>
-      <header> </header>
-      <nav>
-        <div className="topnav" id="myTopnav">
-          {isLoggedIn() && <p>{user.fullName}</p>}
-          <Link to="#home" className="active">
-            Home
-          </Link>
-          <Link to="/locations">Locations</Link>
-          {isLoggedIn() && <Link to="/new">Add a Location</Link>}
-          <Link to="/movies">Movies</Link>
-          {isLoggedIn() || <Link to="/signup">Sign Up</Link>}
-          {isLoggedIn() || <Link to="/signin">Sign In</Link>}
-          {isLoggedIn() && (
-            <Link to="/" onClick={handleLogout}>
-              Sign Out
+      <header>
+        <nav>
+          <div className="topnav" id="myTopnav">
+            {isLoggedIn() && <p>{user.fullName}</p>}
+            <Link to="/home" className="active">
+              Home
             </Link>
-          )}
+            <Link to="/locations">Locations</Link>
+            {isLoggedIn() && <Link to="/new">Add a Location</Link>}
+            <Link to="/movies">Movies</Link>
+            {isLoggedIn() || <Link to="/signup">Sign Up</Link>}
+            {isLoggedIn() || <Link to="/signin">Sign In</Link>}
+            {isLoggedIn() && (
+              <Link to="/" onClick={handleLogout}>
+                Sign Out
+              </Link>
+            )}
 
-          <Link
-            to="javascript:void(0);"
-            className="icon"
-            onclick="myFunction()"
-          >
-            <i className="fa fa-bars"></i>
-          </Link>
-        </div>
-      </nav>
+            <Link
+              to="javascript:void(0);"
+              className="icon"
+              onclick="myFunction()"
+            >
+              <i className="fa fa-bars"></i>
+            </Link>
+          </div>
+        </nav>
+      </header>
+
       <main className="background">
         <Switch>
+          <Route exact path="/home">
+            <Home />
+          </Route>
           <Route exact path="/locations">
             <Locations />
           </Route>

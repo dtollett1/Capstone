@@ -1,30 +1,59 @@
-.topnav {
-  background-color: #100007;
+header {
+  position: relative;
+  // background-color: #100007;
   overflow: hidden;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 5px 10px 100px 5px black;
+  height: 250px;
+  width: auto;
+}
+header::after {
+  content: '';
+  background-image: url(../images/headerBackground.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: #d9d7dd;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  background-color: #3e92cc;
+  opacity: 0.9;
+  text-shadow: 2px 2px 4px #000000;
+  box-shadow: 0 2px 2px -2px black;
+  display: grid;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: #bec5ca;
   color: black;
 }
 
 /* Add an active class to highlight the current page */
-.topnav a.active {
-  background-color: #3e92cc;
-  color: white;
-}
+// .topnav a.active {
+//   background-color: #3e92cc;
+//   color: white;
+// }
 
 /* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {

@@ -1,221 +1,64 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+
 import logo from '../images/onlocation.png'
+import '../styles/home.scss'
 
 export function Home() {
+  const [locations, setLocations] = useState([])
+  const [filterText, setFilterText] = useState('')
+
+  useEffect(
+    function () {
+      async function loadLocations() {
+        const url = `/api/locations?filter=${filterText}`
+        const { data: newLocations } = await axios({
+          method: 'get',
+          url: url,
+        })
+
+        setLocations(newLocations)
+      }
+      loadLocations()
+    },
+    [filterText]
+  )
   return (
     <>
-      <header>
-        <div className="title">
-          <img src={logo} />
-        </div>
+      <main className="home">
+        <section>
+          <div>
+            <input
+              type="text"
+              placeholder="Search..."
+              value={filterText}
+              onChange={function (event) {
+                setFilterText(event.target.value)
+              }}
+            />
+          </div>
+        </section>
+        <h1>On Location</h1>
 
-        <div className="social">
-          <ul>
-            <li>facebook</li>
-            <li>twitter</li>
-            <li>join</li>
-            <li>sign in</li>
-          </ul>
-        </div>
-      </header>
-      <main>
-        <h1>Welcome to On Location</h1>
-        <input type="text" placeholder="Search..." />
-        <section>
-          <h2>New York</h2>
-          <ul>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/23880"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/36537"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/35174"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/5918"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/35901"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/560"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>New Orleans</h2>
-          <ul>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/88381"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/8609"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/77118"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/64096"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/2629"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/41482"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2> Martin Scorsese</h2>
-          <ul>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/54268"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/54275"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/47512"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/9316"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/81198"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/50890"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>David Fincher</h2>
-          <ul>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/66490"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/64096"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/28666"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/55575"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/27354"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/31579"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-          </ul>
-        </section>
+        <h2>Movie Locations Near You</h2>
+        <ul>
+          <li>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Exercitationem recusandae illo in aut? Nam dolores esse at, quos
+            saepe possimus, optio eos eum illum doloremque delectus ipsam itaque
+            illo mollitia.
+          </li>
+        </ul>
+        <h2>Plan Your Next Location</h2>
+        <ul>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati,
+            voluptatibus? Iste, quibusdam explicabo adipisci quis facilis
+            accusantium dolorem tempore, molestiae, modi accusamus similique
+            veritatis iusto quas est perspiciatis pariatur vel.
+          </li>
+        </ul>
       </main>
-      <footer>
-        <p>about</p>
-        <p>contact us</p>
-        <p>home</p>
-        <p>Designed by</p>
-      </footer>
     </>
   )
 }

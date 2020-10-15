@@ -26,7 +26,7 @@ export function Locations() {
 
   return (
     <>
-      <nav className="results"></nav>
+      <nav className="result"></nav>
       <div>
         {/* <img className="logo" src={logo} height="200" width="250" /> */}
         <h1>Locations</h1>
