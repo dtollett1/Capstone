@@ -1,3 +1,6 @@
+@import 'variables';
+@import 'mixins';
+
 * {
   box-sizing: border-box;
 }
@@ -18,15 +21,17 @@ input[type='password']:focus {
   background-color: #ddd;
   outline: none;
 }
-
-hr {
+.signUp {
+  @include center();
+}
+section {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
 
 /* Set a style for all buttons */
 button {
-  background-color: #4caf50;
+  background-color: #3e92cc;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;

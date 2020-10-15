@@ -41,57 +41,60 @@ export function SignUp() {
     <>
       <form onSubmit={handleFormSubmit}>
         <div className="container">
-          <h1>Sign Up</h1>
-          <p>Please fill in this form to create an account.</p>
-          {errorMessage && <p>{errorMessage}</p>}
-          <label for="fullName">
-            <b>Full Name</b>
-          </label>
-          <input
-            type="text"
-            placeholder="Enter Full Name"
-            name="fullName"
-            value={newUser.fullName}
-            onChange={handleStringFieldChange}
-            required
-          />
-          <label for="email">
-            <b>Email</b>
-          </label>
-          <input
-            type="text"
-            placeholder="Enter Email"
-            name="email"
-            value={newUser.email}
-            onChange={handleStringFieldChange}
-          />
+          <h1 className="signUp">Sign Up</h1>
+          <section>
+            <p>Please fill in this form to create an account.</p>
 
-          <label for="psw">
-            <b>Password</b>
-          </label>
-          <input
-            type="password"
-            placeholder="Enter Password"
-            name="password"
-            value={newUser.password}
-            onChange={handleStringFieldChange}
-          />
+            {errorMessage && <p>{errorMessage}</p>}
+            <label for="fullName">
+              <b>Full Name</b>
+            </label>
+            <input
+              type="text"
+              placeholder="Enter Full Name"
+              name="fullName"
+              value={newUser.fullName}
+              onChange={handleStringFieldChange}
+              required
+            />
+            <label for="email">
+              <b>Email</b>
+            </label>
+            <input
+              type="text"
+              placeholder="Enter Email"
+              name="email"
+              value={newUser.email}
+              onChange={handleStringFieldChange}
+            />
 
-          <label>
-            <input type="checkbox" checked="checked" name="remember" /> Remember
-            me
-          </label>
+            <label for="psw">
+              <b>Password</b>
+            </label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+              value={newUser.password}
+              onChange={handleStringFieldChange}
+            />
 
-          <div className="clearfix">
-            <button type="button" className="cancelbtn">
-              Cancel
-            </button>
-            <button type="submit" className="signupbtn">
-              Sign Up
-            </button>
-          </div>
+            <label>
+              <input type="checkbox" checked="checked" name="remember" />{' '}
+              Remember me
+            </label>
+
+            <div className="clearfix">
+              <button type="button" className="cancelbtn">
+                Cancel
+              </button>
+              <button type="submit" className="signupbtn">
+                Sign Up
+              </button>
+            </div>
+          </section>
         </div>
-      </form>{' '}
+      </form>
     </>
   )
 }

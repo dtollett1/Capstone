@@ -12,6 +12,7 @@ namespace capstoneProject.Models
         [Required]
         public string Address { get; set; }
         public string Telephone { get; set; }
+        public int UserId { get; set; }
 
         public List<Review> Reviews { get; set; }
     }

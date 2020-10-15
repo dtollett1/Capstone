@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CapstoneProject.Models;
 using capstoneProject.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace CapstoneProject.Controllers
 {
@@ -136,8 +138,11 @@ namespace CapstoneProject.Controllers
         // new values for the record.
         //
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<Location>> PostLocation(Location location)
         {
+            // Set the UserID to the current user id, this overrides anything the user specifies.
+            location.UserId = GetCurrentUserId();
             // Indicate to the database context we want to add this new record
             _context.Locations.Add(location);
             await _context.SaveChangesAsync();
@@ -182,6 +187,12 @@ namespace CapstoneProject.Controllers
         private bool LocationExists(int id)
         {
             return _context.Locations.Any(location => location.Id == id);
+        }
+        // Private helper method to get the JWT claim related to the user ID
+        private int GetCurrentUserId()
+        {
+            // Get the User Id from the claim and then parse it as an integer.
+            return int.Parse(User.Claims.FirstOrDefault(claim => claim.Type == "Id").Value);
         }
     }
 }

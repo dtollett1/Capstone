@@ -10,6 +10,7 @@ import { SignIn } from './pages/SignIn'
 import { Movies } from './pages/Movies'
 import { SignUp } from './pages/SignUp'
 import { isLoggedIn, logout, getUser } from './auth'
+
 function handleLogout() {
   logout()
 }
@@ -17,7 +18,8 @@ const user = getUser()
 export function App() {
   return (
     <>
-      <header>
+      <header> </header>
+      <nav>
         <div className="topnav" id="myTopnav">
           {isLoggedIn() && <p>{user.fullName}</p>}
           <Link to="#home" className="active">
@@ -29,9 +31,9 @@ export function App() {
           {isLoggedIn() || <Link to="/signup">Sign Up</Link>}
           {isLoggedIn() || <Link to="/signin">Sign In</Link>}
           {isLoggedIn() && (
-            <span className="link" onClick={handleLogout}>
+            <Link to="/" onClick={handleLogout}>
               Sign Out
-            </span>
+            </Link>
           )}
 
           <Link
@@ -42,28 +44,29 @@ export function App() {
             <i className="fa fa-bars"></i>
           </Link>
         </div>
-      </header>
-
-      <Switch>
-        <Route exact path="/locations">
-          <Locations />
-        </Route>
-        <Route exact path="/new">
-          <NewLocation />
-        </Route>
-        <Route exact path="/locations/:id">
-          <LocationDetail />
-        </Route>
-        <Route exact path="/signup">
-          <SignUp />
-        </Route>
-        <Route exact path="/signin">
-          <SignIn />
-        </Route>
-        <Route exact path="/movies">
-          <Movies />
-        </Route>
-      </Switch>
+      </nav>
+      <main className="background">
+        <Switch>
+          <Route exact path="/locations">
+            <Locations />
+          </Route>
+          <Route exact path="/new">
+            <NewLocation />
+          </Route>
+          <Route exact path="/locations/:id">
+            <LocationDetail />
+          </Route>
+          <Route exact path="/signup">
+            <SignUp />
+          </Route>
+          <Route exact path="/signin">
+            <SignIn />
+          </Route>
+          <Route exact path="/movies">
+            <Movies />
+          </Route>
+        </Switch>
+      </main>
 
       <footer>
         <p>home</p>

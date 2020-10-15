@@ -4,16 +4,16 @@ import axios from 'axios'
 export function Movies() {
   const [movies, setMovies] = useState({})
 
-  useEffect(() => {
-    async function fetchMovies() {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?primary_release_year=1989&sort_by=popularity.desc&api_key=e2491dbfebc8bc34967b24ea37c22a92`
-      )
-      const apiData = await response.json()
-      setMovies(apiData)
-    }
-    fetchMovies()
-  }, [])
+  // useEffect(() => {
+  //   async function fetchMovies() {
+  //     const response = await fetch(
+  //       `https://api.themoviedb.org/3/discover/movie?&sort_by=popularity.desc&api_key=e2491dbfebc8bc34967b24ea37c22a92`
+  //     )
+  //     const apiData = await response.json()
+  //     setMovies(apiData)
+  //   }
+  //   fetchMovies()
+  // }, [])
   return (
     <>
       <section>
@@ -22,7 +22,7 @@ export function Movies() {
         <ul>
           <li>
             <img
-              src={`https://image.tmdb.org/t/p/w185/${movies}`}
+              // src={`https://image.tmdb.org/t/p/w185/${poster_path}`}
               width="210"
               height="315"
             ></img>

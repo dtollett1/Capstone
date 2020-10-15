@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Axios from 'axios'
+import { authHeader } from '../auth'
 
 export function NewLocation() {
   const [errorMessage, setErrorMessage] = useState()
@@ -23,14 +24,18 @@ export function NewLocation() {
 
     const response = await fetch('/api/Locations', {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', ...authHeader() },
       body: JSON.stringify(newLocation),
     })
-    const json = await response.json()
-    if (response.status === 400) {
-      setErrorMessage(Object.values(json.errors).join(' '))
+    if (response.status === 401) {
+      setErrorMessage('Not Authorized')
     } else {
-      history.push('/')
+      const json = await response.json()
+      if (response.status === 400) {
+        setErrorMessage(Object.values(json.errors).join(' '))
+      } else {
+        history.push('/')
+      }
     }
   }
 
