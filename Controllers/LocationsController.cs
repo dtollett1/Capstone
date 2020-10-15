@@ -9,6 +9,8 @@ using CapstoneProject.Models;
 using capstoneProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Configuration;
+using Geocoding.Microsoft;
 
 namespace CapstoneProject.Controllers
 {
@@ -22,11 +24,15 @@ namespace CapstoneProject.Controllers
         // This is the variable you use to have access to your database
         private readonly DatabaseContext _context;
 
+        // API key for BING Maps
+        private readonly string BING_MAPS_KEY;
+
         // Constructor that recives a reference to your database context
         // and stores it in _context for you to use in your API methods
-        public LocationsController(DatabaseContext context)
+        public LocationsController(DatabaseContext context, IConfiguration config)
         {
             _context = context;
+            BING_MAPS_KEY = config["BING_MAPS_KEY"];
         }
 
         // GET: api/Locations
@@ -141,6 +147,22 @@ namespace CapstoneProject.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<Location>> PostLocation(Location location)
         {
+            // Create a new geocoder
+            var geocoder = new BingMapsGeocoder(BING_MAPS_KEY);
+
+            // Request this address to be geocoded.
+            var geocodedAddresses = await geocoder.GeocodeAsync(location.Address);
+
+            // ... and pick out the best address sorted by the confidence level
+            var bestGeocodedAddress = geocodedAddresses.OrderBy(address => address.Confidence).LastOrDefault();
+
+            // If we have a best geocoded address, use the latitude and longitude from that result
+            if (bestGeocodedAddress != null)
+            {
+                location.Latitude = bestGeocodedAddress.Coordinates.Latitude;
+                location.Longitude = bestGeocodedAddress.Coordinates.Longitude;
+            }
+
             // Set the UserID to the current user id, this overrides anything the user specifies.
             location.UserId = GetCurrentUserId();
             // Indicate to the database context we want to add this new record
