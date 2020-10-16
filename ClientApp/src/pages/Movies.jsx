@@ -1,19 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-export function Movies() {
-  const [movies, setMovies] = useState({})
-
-  // useEffect(() => {
-  //   async function fetchMovies() {
-  //     const response = await fetch(
+export async function Movies() {
   //       `https://api.themoviedb.org/3/discover/movie?&sort_by=popularity.desc&api_key=e2491dbfebc8bc34967b24ea37c22a92`
-  //     )
-  //     const apiData = await response.json()
-  //     setMovies(apiData)
-  //   }
-  //   fetchMovies()
-  // }, [])
+
   return (
     <>
       <section>

@@ -24,10 +24,6 @@ input[type='password']:focus {
 .signUp {
   @include center();
 }
-section {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
 
 /* Set a style for all buttons */
 button {

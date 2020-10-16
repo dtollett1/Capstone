@@ -29,9 +29,6 @@ export function LocationDetail() {
     <>
       <main className="page">
         <nav>
-          <a href="/">
-            <i className="fa fa-home"></i>
-          </a>
           <h2>{location.name}</h2>
         </nav>
         <address>{location.address}</address>

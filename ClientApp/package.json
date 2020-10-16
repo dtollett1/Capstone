@@ -16,7 +16,8 @@
     "react-map-gl": "^5.2.9",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "unirest": "^0.6.0"
   },
   "devDependencies": {
     "ajv": "^6.12.3",

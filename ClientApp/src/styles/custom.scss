@@ -6,7 +6,20 @@
 body {
   margin: 0;
   min-height: 100%;
+  // background-image: url(../images/grayBackground.jpg);
   background-color: #343a40;
+}
+.map {
+  display: grid;
+
+  color: black;
+}
+main {
+  // background-image: url(../images/grayBackground.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .background {
@@ -14,19 +27,10 @@ body {
   margin-right: 10rem;
   text-align: center;
   padding-top: 2rem;
-  background-color: #343a40;
+  // background-color: #343a40;
   font-family: 'Montserrat', sans-serif;
   color: #f4f7f5;
   @include center();
-  li {
-    list-style: none;
-    text-align: center;
-    @include transition();
-
-    &:hover {
-      transform: scale(1.06);
-    }
-  }
 }
 .results {
   a:link,
@@ -36,7 +40,8 @@ body {
   a:active {
     color: #f4f7f5;
   }
-  padding-bottom: 100px;
+  list-style: none;
+  text-align: center;
 }
 .signIn {
   /* Bordered form */
