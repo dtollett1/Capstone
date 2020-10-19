@@ -64,24 +64,6 @@ export function Home() {
         </section>
         <h1>On Location</h1>
 
-        <h2>Movie Locations Near You</h2>
-        <ul>
-          <li>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Exercitationem recusandae illo in aut? Nam dolores esse at, quos
-            saepe possimus, optio eos eum illum doloremque delectus ipsam itaque
-            illo mollitia.
-          </li>
-        </ul>
-        <h2>Plan Your Next Location</h2>
-        <ul>
-          <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati,
-            voluptatibus? Iste, quibusdam explicabo adipisci quis facilis
-            accusantium dolorem tempore, molestiae, modi accusamus similique
-            veritatis iusto quas est perspiciatis pariatur vel.
-          </li>
-        </ul>
         <h2>Mapped Locations</h2>
         <section className="map">
           <ReactMapGL
