@@ -41,9 +41,9 @@ export function SignIn() {
     <>
       <section className="signIn">
         <form onSubmit={handleFormSubmit} method="post">
-          <div className="imgcontainer">
+          {/* <div className="imgcontainer">
             <img src="img_avatar2.png" alt="Avatar" className="avatar" />
-          </div>
+          </div> */}
           {errorMessage && <p>{errorMessage}</p>}
           <div className="container">
             <label for="uname">
@@ -75,14 +75,14 @@ export function SignIn() {
             </label>
           </div>
 
-          <div className="container">
+          {/* <div className="container">
             <button type="button" className="cancelbtn">
               Cancel
             </button>
             <span className="psw">
               Forgot <a href="#">password?</a>
             </span>
-          </div>
+          </div> */}
         </form>
       </section>
     </>

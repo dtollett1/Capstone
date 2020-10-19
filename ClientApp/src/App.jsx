@@ -68,9 +68,6 @@ export function App() {
           <Route exact path="/signin">
             <SignIn />
           </Route>
-          <Route exact path="/movies">
-            <Movies />
-          </Route>
         </Switch>
       </main>
 

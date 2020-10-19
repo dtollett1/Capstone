@@ -20,24 +20,18 @@ export function Home() {
     zoom: 9.8,
   })
 
-  useEffect(() => {
-    async function fetchMovies() {
-      const response = await fetch(
-        'https://api.themoviedb.org/3/discover/movie?&sort_by=popularity.desc&api_key=e2491dbfebc8bc34967b24ea37c22a92'
-      )
-      const apiData = await response.json()
-      console.log(apiData.results)
-      setMovies(apiData.results)
-    }
-    fetchMovies()
-  }, [])
+  // useEffect(() => {
+  //   async function fetchMovies() {
+  //     const response = await fetch(
+  //       'https://api.themoviedb.org/3/discover/movie?&sort_by=popularity.desc&api_key=e2491dbfebc8bc34967b24ea37c22a92'
+  //     )
+  //     const apiData = await response.json()
+  //     console.log(apiData.results)
+  //     setMovies(apiData.results)
+  //   }
+  //   fetchMovies()
+  // }, [])
 
-  // useEffect(async () => {
-  //   const result = await axios(
-  //     'https://api.themoviedb.org/3/discover/movie?&sort_by=popularity.desc&api_key=e2491dbfebc8bc34967b24ea37c22a92'
-  //   )
-  //   setMovies(result.movies)
-  // })
   useEffect(
     function () {
       async function loadLocations() {
@@ -135,7 +129,7 @@ export function Home() {
         <section className="movieList">
           <h2>Movies</h2>
           <h3>New York</h3>
-          <ul>
+          {/* <ul>
             {movies.map((movie) => (
               <li>
                 <img
@@ -145,7 +139,7 @@ export function Home() {
                 ></img>
               </li>
             ))}
-          </ul>
+          </ul> */}
           <h3>Chicago</h3>
           <ul>
             <li>
