@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { recordAuthentication } from '../auth'
 
+import '../styles/signIn.scss'
+
 export function SignIn() {
   const [errorMessage, setErrorMessage] = useState()
 
