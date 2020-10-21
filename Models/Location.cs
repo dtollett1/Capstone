@@ -11,7 +11,7 @@ namespace capstoneProject.Models
         public string Description { get; set; }
         [Required]
         public string Address { get; set; }
-        public string Telephone { get; set; }
+        public string Movie { get; set; }
         public int UserId { get; set; }
         public double Latitude { get; set; }
 

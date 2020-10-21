@@ -18,6 +18,7 @@ namespace CapstoneProject.Models
         public DbSet<Location> Locations { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Film> Films { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasIndex(user => user.Email).IsUnique();

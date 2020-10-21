@@ -36,7 +36,7 @@ namespace CapstoneProject.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<string>("Telephone")
+                    b.Property<string>("Movie")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
