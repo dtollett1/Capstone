@@ -46,6 +46,7 @@ export function App() {
             </Link>
           </div>
         </nav>
+        <h1 className="title">On Location</h1>
       </header>
 
       <main className="background">

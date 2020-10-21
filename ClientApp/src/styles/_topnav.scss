@@ -1,15 +1,12 @@
 header {
   position: relative;
-  // background-color: #100007;
   overflow: hidden;
-
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   box-shadow: 5px 10px 100px 5px black;
   height: 250px;
   width: auto;
+  .title {
+    text-align: center;
+  }
 }
 header::after {
   content: '';
