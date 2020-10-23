@@ -2,35 +2,40 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl'
 
-import logo from '../images/onlocation.png'
 import '../styles/home.scss'
 
 export function Home() {
   const [locations, setLocations] = useState([])
   const [filterText, setFilterText] = useState('')
-  const [movies, setMovies] = useState([])
+  const [films, setFilms] = useState([])
 
   const [selectedMapLocation, setSelectedMapLocation] = useState(null)
 
   const [viewport, setViewport] = useState({
-    width: 327,
-    height: 264,
+    width: 650,
+    // 327
+    height: 530,
+    // 264
     latitude: 27.77101804911986,
     longitude: -82.66090611749074,
     zoom: 9.8,
   })
 
-  // useEffect(() => {
-  //   async function fetchMovies() {
-  //     const response = await fetch(
-  //       'https://api.themoviedb.org/3/discover/movie?&sort_by=popularity.desc&api_key=e2491dbfebc8bc34967b24ea37c22a92'
-  //     )
-  //     const apiData = await response.json()
-  //     console.log(apiData.results)
-  //     setMovies(apiData.results)
-  //   }
-  //   fetchMovies()
-  // }, [])
+  useEffect(
+    function () {
+      async function loadFilms() {
+        const url = `/api/films?filter=${filterText}`
+        const { data: newFilms } = await axios({
+          method: 'get',
+          url: url,
+        })
+
+        setFilms(newFilms)
+      }
+      loadFilms()
+    },
+    [filterText]
+  )
 
   useEffect(
     function () {
@@ -108,95 +113,19 @@ export function Home() {
             </div>
           </ReactMapGL>
         </section>
-        <section className="movieList">
+        <section>
           <h2>Movies</h2>
-          <h3>New York</h3>
-          {/* <ul>
-            {movies.map((movie) => (
-              <li>
+          <ul className="movieList">
+            {films.map((film) => (
+              <li key={film.id}>
                 <img
-                  src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}
+                  src={film.poster}
                   width="210"
                   height="315"
+                  alt={film.title}
                 ></img>
               </li>
             ))}
-          </ul> */}
-          <h3>Chicago</h3>
-          <ul>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/36537"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/35174"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/5918"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/35901"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/560"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-          </ul>
-          <h3>Tampa</h3>
-          <ul>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/36537"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/35174"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/5918"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/35901"
-                width="210"
-                height="315"
-              ></img>
-            </li>
-            <li>
-              <img
-                src="https://theposterdb.com/api/assets/560"
-                width="210"
-                height="315"
-              ></img>
-            </li>
           </ul>
         </section>
       </main>

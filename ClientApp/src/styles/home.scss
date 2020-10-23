@@ -17,24 +17,42 @@
 //   height: 100%;
 // }
 .movieList {
-  ul {
-    display: inline-flex;
-    justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 960px;
+  gap: 1rem;
+  padding: 1rem;
+  margin: auto;
 
-    li {
-      list-style: none;
-      text-align: center;
-      @include transition();
-      padding-right: 1.5rem;
+  li {
+    list-style: none;
+    text-align: center;
+    @include transition();
+    padding-right: 1.5rem;
 
-      &:hover {
-        transform: scale(1.06);
-      }
-
-      img {
-        box-shadow: 0 2px 50px -2px black;
-        border-radius: 0.5rem;
-      }
+    &:hover {
+      transform: scale(1.06);
     }
+
+    img {
+      box-shadow: 0 2px 50px -2px black;
+      border-radius: 0.5rem;
+    }
+  }
+}
+@media (min-width: 600px) {
+  .movieList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 960px) {
+  .movieList {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1360px) {
+  .movieList {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
