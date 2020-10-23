@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using capstoneProject.Models;
+
 namespace CapstoneProject.Models
 {
     public class Film
@@ -8,6 +11,7 @@ namespace CapstoneProject.Models
         public string Year { get; set; }
         public string Poster { get; set; }
 
+        public List<Location> locations { get; set; }
 
     }
 }

@@ -23,6 +23,13 @@
   gap: 1rem;
   padding: 1rem;
   margin: auto;
+  a:link,
+  a:visited,
+  a:focus,
+  a:hover,
+  a:active {
+    color: #f4f7f5;
+  }
 
   li {
     list-style: none;

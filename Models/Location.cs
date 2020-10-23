@@ -16,7 +16,10 @@ namespace capstoneProject.Models
         public double Latitude { get; set; }
 
         public double Longitude { get; set; }
+        public int FilmId { get; set; }
 
         public List<Review> Reviews { get; set; }
+
+
     }
 }

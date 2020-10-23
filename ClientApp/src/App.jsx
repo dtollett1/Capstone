@@ -69,6 +69,9 @@ export function App() {
           <Route exact path="/signin">
             <SignIn />
           </Route>
+          <Route exact path="/films/:id">
+            <LocationDetail />
+          </Route>
         </Switch>
       </main>
 

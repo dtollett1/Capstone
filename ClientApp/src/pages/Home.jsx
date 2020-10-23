@@ -3,6 +3,7 @@ import axios from 'axios'
 import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl'
 
 import '../styles/home.scss'
+import { Link } from 'react-router-dom'
 
 export function Home() {
   const [locations, setLocations] = useState([])
@@ -55,18 +56,6 @@ export function Home() {
   return (
     <>
       <main className="home">
-        <section>
-          <div>
-            <input
-              type="text"
-              placeholder="Search..."
-              value={filterText}
-              onChange={function (event) {
-                setFilterText(event.target.value)
-              }}
-            />
-          </div>
-        </section>
         <h1>On Location</h1>
 
         <h2>Mapped Locations</h2>
@@ -115,6 +104,14 @@ export function Home() {
         </section>
         <section>
           <h2>Movies</h2>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={filterText}
+            onChange={function (event) {
+              setFilterText(event.target.value)
+            }}
+          />
           <ul className="movieList">
             {films.map((film) => (
               <li key={film.id}>
@@ -124,6 +121,9 @@ export function Home() {
                   height="315"
                   alt={film.title}
                 ></img>
+                <h2>
+                  <Link to={`/films/${film.id}`}>{film.title}</Link>
+                </h2>
               </li>
             ))}
           </ul>
