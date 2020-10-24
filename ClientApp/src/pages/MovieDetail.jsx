@@ -11,6 +11,7 @@ export function MovieDetail() {
     year: '',
     poster: '',
     locations: [],
+    trailer: '',
   })
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export function MovieDetail() {
           <iframe
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/U1fu_sA7XhE"
+            src={film.trailer}
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen

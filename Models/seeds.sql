@@ -1,5 +1,5 @@
 TRUNCATE TABLE "Locations", "Films"
-, "Reviews" RESTART IDENTITY;
+, "Reviews", "Films" RESTART IDENTITY;
 TRUNCATE TABLE "Users";
 
 
