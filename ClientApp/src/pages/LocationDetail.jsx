@@ -12,7 +12,7 @@ export function LocationDetail() {
     name: '',
     description: '',
     address: '',
-    telephone: '',
+    movie: '',
     reviews: [],
   })
 

@@ -31,13 +31,19 @@ namespace CapstoneProject.Controllers
         // Returns a list of all your Films
         //
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Film>>> GetFilms()
+        public async Task<ActionResult<IEnumerable<Film>>> GetFilms(string filter)
         {
-            // Uses the database context in `_context` to request all of the Films, sort
-            // them by row id and return them as a JSON array.
-            return await _context.Films.OrderBy(row => row.Id).ToListAsync();
+            if (filter == null)
+            {
+                return await _context.Films.OrderByDescending(film => film.Id).Include(film => film.Locations).ToListAsync();
+            }
+            else
+            {
+                return await _context.Films.Where(film => film.Title.ToLower().Contains(filter.ToLower()) ||
+                                                                  film.Description.ToLower().Contains(filter.ToLower())).
+                                                                  OrderByDescending(film => film.Id).Include(film => film.Locations).ToListAsync();
+            }
         }
-
         // GET: api/Films/5
         //
         // Fetches and returns a specific film by finding it by id. The id is specified in the
@@ -48,7 +54,7 @@ namespace CapstoneProject.Controllers
         public async Task<ActionResult<Film>> GetFilm(int id)
         {
             // Find the film in the database using `FindAsync` to look it up by id
-            var film = await _context.Films.FindAsync(id);
+            var film = await _context.Films.Include(film => film.Locations).Where(film => film.Id == id).FirstOrDefaultAsync();
 
             // If we didn't find anything, we receive a `null` in return
             if (film == null)

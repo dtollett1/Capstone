@@ -9,6 +9,7 @@ import { LocationDetail } from './pages/LocationDetail'
 import { SignIn } from './pages/SignIn'
 import { Movies } from './pages/Movies'
 import { SignUp } from './pages/SignUp'
+import { MovieDetail } from './pages/MovieDetail'
 import { isLoggedIn, logout, getUser } from './auth'
 
 function handleLogout() {
@@ -40,13 +41,13 @@ export function App() {
             <Link
               to="javascript:void(0);"
               className="icon"
-              onclick="myFunction()"
+              // onclick="myFunction()"
             >
               <i className="fa fa-bars"></i>
             </Link>
           </div>
         </nav>
-        <h1 className="title">On Location</h1>
+        <h1 className="title"></h1>
       </header>
 
       <main className="background">
@@ -70,7 +71,7 @@ export function App() {
             <SignIn />
           </Route>
           <Route exact path="/films/:id">
-            <LocationDetail />
+            <MovieDetail />
           </Route>
         </Switch>
       </main>
