@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import format from 'date-fns/format'
+import { getUser, authHeader, isLoggedIn } from '../auth'
 
 const dateFormat = `EEEE, MMMM do, yyyy 'at' h:mm aaa`
 
 export function LocationDetail() {
+  const history = useHistory()
+
+  const user = getUser()
+
   const params = useParams()
   const id = params.id
 
@@ -26,6 +31,19 @@ export function LocationDetail() {
     fetchLocation()
   }, [id])
 
+  async function handleDelete(event) {
+    event.preventDefault()
+
+    const response = await fetch(`/api/Locations/${id}`, {
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json', ...authHeader() },
+    })
+
+    if (response.status === 200 || response.status === 204) {
+      history.push('/')
+    }
+  }
+
   return (
     <>
       <main className="page">
@@ -38,6 +56,9 @@ export function LocationDetail() {
         <h3>Photos For {location.name} </h3>
         {location.photoURL && (
           <img alt="Location Photo" width={200} src={location.photoURL} />
+        )}
+        {isLoggedIn() && location.userId === user.id && (
+          <button onClick={handleDelete}>Delete</button>
         )}
         {location.reviews.length > 0 && (
           <h3>Reviews htmlFor {location.name}</h3>
