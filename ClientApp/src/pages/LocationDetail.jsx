@@ -22,14 +22,30 @@ export function LocationDetail() {
     reviews: [],
   })
 
+  const [newReview, setNewReview] = useState({
+    body: '',
+    summary: '',
+    locationId: id,
+  })
+
+  async function fetchLocation() {
+    const response = await fetch(`/api/Locations/${id}`)
+    const apiData = await response.json()
+
+    setLocation(apiData)
+  }
   useEffect(() => {
-    async function fetchLocation() {
-      const response = await fetch(`/api/Locations/${id}`)
-      const apiData = await response.json()
-      setLocation(apiData)
-    }
     fetchLocation()
   }, [id])
+
+  // useEffect(() => {
+  //   async function fetchLocation() {
+  //     const response = await fetch(`/api/Locations/${id}`)
+  //     const apiData = await response.json()
+  //     setLocation(apiData)
+  //   }
+  //   fetchLocation()
+  // }, [id])
 
   async function handleDelete(event) {
     event.preventDefault()
@@ -42,6 +58,17 @@ export function LocationDetail() {
     if (response.status === 200 || response.status === 204) {
       history.push('/')
     }
+  }
+
+  async function handleDeleteReview(event, reviewId) {
+    event.preventDefault()
+
+    await fetch(`/api/Reviews/${reviewId}`, {
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json', ...authHeader() },
+    })
+
+    fetchLocation()
   }
 
   return (
@@ -81,6 +108,16 @@ export function LocationDetail() {
                 ></span>
                 <time>{format(new Date(review.createdAt), dateFormat)}</time>
               </div>
+              {isLoggedIn() && review.user.id === user.id && (
+                <div>
+                  <button
+                    className="small"
+                    onClick={(event) => handleDeleteReview(event, review.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              )}
             </li>
           ))}
         </ul>
