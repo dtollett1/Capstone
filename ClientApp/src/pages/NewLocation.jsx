@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Axios from 'axios'
+import { useDropzone } from 'react-dropzone'
+
 import { authHeader } from '../auth'
 
 export function NewLocation() {
+  const [isUploading, setIsUploading] = useState(false)
+
   const [errorMessage, setErrorMessage] = useState()
+
   const [newLocation, setNewLocation] = useState({
     name: '',
     description: '',
     address: '',
-    telephone: '',
+    movie: '',
+    photoURL: '',
   })
   const history = useHistory()
   function handleStringFieldChange(event) {
@@ -37,6 +43,67 @@ export function NewLocation() {
         history.push('/')
       }
     }
+  }
+
+  async function onDropFile(acceptedFiles) {
+    // Do something with the files
+    const fileToUpload = acceptedFiles[0]
+    console.log(fileToUpload)
+
+    // Create a formData object so we can send this
+    // to the API that is expecting som form data.
+    const formData = new FormData()
+
+    // Append a field that is the form upload itself
+    formData.append('file', fileToUpload)
+
+    try {
+      setIsUploading(true)
+      // Use fetch to send an authorization header and
+      // a body containing the form data with the file
+      const response = await fetch('/api/Uploads', {
+        method: 'POST',
+        headers: {
+          ...authHeader(),
+        },
+        body: formData,
+      })
+
+      setIsUploading(false)
+
+      // If we receive a 200 OK response, set the
+      // URL of the photo in our state so that it is
+      // sent along when creating the restaurant,
+      // otherwise show an error
+      if (response.status === 200) {
+        const apiResponse = await response.json()
+
+        const url = apiResponse.url
+
+        setNewLocation({ ...newLocation, photoURL: url })
+      } else {
+        setErrorMessage('Unable to upload image')
+      }
+    } catch {
+      setIsUploading(false)
+      // Catch any network errors and show the user we could not process their upload
+
+      setErrorMessage('Unable to upload image')
+    }
+  }
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: onDropFile,
+  })
+
+  let dropZoneMessage = 'Drag a picture of the location here to upload!'
+
+  if (isUploading) {
+    dropZoneMessage = 'Uploading...'
+  }
+
+  if (isDragActive) {
+    dropZoneMessage = 'Drop the files here ...'
   }
 
   return (
@@ -74,18 +141,28 @@ export function NewLocation() {
             ></textarea>
           </p>
           <p className="form-input">
-            <label htmlFor="name">Telephone</label>
+            <label htmlFor="name">Movie</label>
             <input
-              type="tel"
-              name="telephone"
-              value={newLocation.telephone}
+              name="movie"
+              value={newLocation.movie}
               onChange={handleStringFieldChange}
             />
           </p>
-          <p className="form-input">
-            <label htmlFor="picture">Picture</label>
-            <input type="file" name="picture" />
-          </p>
+          {newLocation.photoURL && (
+            <p>
+              <img
+                alt="Location Photo"
+                width={200}
+                src={newLocation.photoURL}
+              />
+            </p>
+          )}
+          <div className="file-drop-zone">
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              {dropZoneMessage}
+            </div>
+          </div>
           <p>
             <input type="submit" value="submit" />
           </p>

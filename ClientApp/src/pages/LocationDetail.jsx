@@ -13,6 +13,7 @@ export function LocationDetail() {
     description: '',
     address: '',
     movie: '',
+    photoURL: '',
     reviews: [],
   })
 
@@ -35,7 +36,9 @@ export function LocationDetail() {
         <hr />
         <p>{location.description}</p>
         <h3>Photos For {location.name} </h3>
-        <img />
+        {location.photoURL && (
+          <img alt="Location Photo" width={200} src={location.photoURL} />
+        )}
         {location.reviews.length > 0 && (
           <h3>Reviews htmlFor {location.name}</h3>
         )}
