@@ -13,22 +13,24 @@ body {
   box-shadow: black;
   color: black;
 }
-main {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
 
 .background {
   margin-left: 10rem;
   margin-right: 10rem;
-  text-align: center;
+  // text-align: center;
   padding-top: 2rem;
   // background-color: #343a40;
   font-family: 'Montserrat', sans-serif;
   color: #f4f7f5;
   @include center();
+}
+
+.filmhead {
+  display: flex;
+  justify-content: space-between;
+}
+.locationsList {
+  margin-top: 100px;
 }
 
 footer {

@@ -26,10 +26,9 @@ export function MovieDetail() {
   return (
     <>
       <main>
-        <nav>
-          <h2>{film.title}</h2>
-          <h3>{film.year}</h3>
-          <img src={film.poster} width="210" height="315" />
+        <div className="filmhead">
+          <h1>{film.title}</h1>
+          <h2>{film.year}</h2>
           <iframe
             width="560"
             height="315"
@@ -38,20 +37,22 @@ export function MovieDetail() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
+          <img src={film.poster} width="210" height="315" />
+        </div>
+        <div className="locationsList">
           <h2>Locations</h2>
-
           <ul>
             {film.locations.map((location) => (
               <li key={location.id} className="results">
                 <h2>
                   <Link to={`/locations/${location.id}`}>{location.name}</Link>
                 </h2>
-                <p>{location.description}</p>
+
                 <address>{location.address}</address>
               </li>
             ))}
           </ul>
-        </nav>
+        </div>
       </main>
     </>
   )

@@ -17,6 +17,7 @@ namespace capstoneProject.Models
 
         public double Longitude { get; set; }
         public int FilmId { get; set; }
+        public string PhotoURL { get; set; }
 
         public List<Review> Reviews { get; set; }
 

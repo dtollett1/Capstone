@@ -33,7 +33,9 @@ export function LocationDetail() {
         </nav>
         <address>{location.address}</address>
         <hr />
+        <p>{location.description}</p>
         <h3>Photos For {location.name} </h3>
+        <img />
         {location.reviews.length > 0 && (
           <h3>Reviews htmlFor {location.name}</h3>
         )}
@@ -65,7 +67,7 @@ export function LocationDetail() {
             <input type="text" name="summary" />
             <span className="note">
               Enter a brief summary of your review. Example:{' '}
-              <strong>Great food, good prices.</strong>
+              <strong>Lorem ipsum, dolor si</strong>
             </span>
           </p>
           <p className="form-input">

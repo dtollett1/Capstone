@@ -23,12 +23,18 @@
   a:hover,
   a:active {
     color: #f4f7f5;
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 960px;
+    gap: 1rem;
+    padding: 1rem;
+    margin: auto;
   }
   list-style: none;
-  text-align: center;
+  // text-align: center;
   display: grid;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
 }

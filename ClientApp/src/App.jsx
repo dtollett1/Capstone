@@ -7,7 +7,6 @@ import { Locations } from './pages/Locations'
 import { NewLocation } from './pages/NewLocation'
 import { LocationDetail } from './pages/LocationDetail'
 import { SignIn } from './pages/SignIn'
-import { Movies } from './pages/Movies'
 import { SignUp } from './pages/SignUp'
 import { MovieDetail } from './pages/MovieDetail'
 import { isLoggedIn, logout, getUser } from './auth'
@@ -20,7 +19,7 @@ const user = getUser()
 export function App() {
   return (
     <>
-      <header>
+      <header className="tophead">
         <nav>
           <div className="topnav" id="myTopnav">
             {isLoggedIn() && <p>{user.fullName}</p>}
@@ -29,7 +28,6 @@ export function App() {
             </Link>
             <Link to="/locations">Locations</Link>
             {isLoggedIn() && <Link to="/new">Add a Location</Link>}
-            <Link to="/movies">Movies</Link>
             {isLoggedIn() || <Link to="/signup">Sign Up</Link>}
             {isLoggedIn() || <Link to="/signin">Sign In</Link>}
             {isLoggedIn() && (

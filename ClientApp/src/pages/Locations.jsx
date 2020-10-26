@@ -110,7 +110,7 @@ export function Locations() {
                 ></span>
                 ({location.reviews.length})
               </p>
-              <p>{location.description}</p>
+              <p className="description">{location.description}</p>
               <address>{location.address}</address>
             </li>
           ))}

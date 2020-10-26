@@ -1,4 +1,4 @@
-header {
+.tophead {
   position: relative;
   overflow: hidden;
   box-shadow: 5px 10px 100px 5px black;
@@ -8,7 +8,7 @@ header {
     text-align: center;
   }
 }
-header::after {
+.tophead::after {
   content: '';
   background-image: url(../images/headerBackground.jpg);
   background-size: contain;
