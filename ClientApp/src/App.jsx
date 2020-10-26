@@ -9,6 +9,7 @@ import { LocationDetail } from './pages/LocationDetail'
 import { SignIn } from './pages/SignIn'
 import { SignUp } from './pages/SignUp'
 import { MovieDetail } from './pages/MovieDetail'
+import { EditUser } from './pages/EditUser'
 import { isLoggedIn, logout, getUser } from './auth'
 
 function handleLogout() {
@@ -30,10 +31,21 @@ export function App() {
             {isLoggedIn() && <Link to="/new">Add a Location</Link>}
             {isLoggedIn() || <Link to="/signup">Sign Up</Link>}
             {isLoggedIn() || <Link to="/signin">Sign In</Link>}
+            {isLoggedIn() && <Link to="/profile">Profile</Link>}
             {isLoggedIn() && (
               <Link to="/" onClick={handleLogout}>
                 Sign Out
               </Link>
+            )}
+            {isLoggedIn() && user.photoURL && (
+              <li className="avatar">
+                <img
+                  src={user.photoURL}
+                  alt={`${user.fullName}'s Avatar`}
+                  height="64"
+                  width="64"
+                />
+              </li>
             )}
 
             <Link
@@ -70,6 +82,9 @@ export function App() {
           </Route>
           <Route exact path="/films/:id">
             <MovieDetail />
+          </Route>
+          <Route exact path="/profile">
+            <EditUser />
           </Route>
         </Switch>
       </main>
