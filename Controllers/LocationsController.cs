@@ -91,8 +91,23 @@ namespace CapstoneProject.Controllers
         // new values for the record.
         //
         [HttpPut("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> PutLocation(int id, Location location)
         {
+            // Find this location by looking for the specific id
+            var locationBelongsToUser = await _context.Locations.AnyAsync(location => location.Id == id && location.UserId == GetCurrentUserId());
+            if (!locationBelongsToUser)
+            {
+                // Make a custom error response
+                var response = new
+                {
+                    status = 401,
+                    errors = new List<string>() { "Not Authorized" }
+                };
+
+                // Return our error with the custom response
+                return Unauthorized(response);
+            }
             // If the ID in the URL does not match the ID in the supplied request body, return a bad request
             if (id != location.Id)
             {

@@ -11,6 +11,7 @@ import { SignUp } from './pages/SignUp'
 import { MovieDetail } from './pages/MovieDetail'
 import { EditUser } from './pages/EditUser'
 import { isLoggedIn, logout, getUser } from './auth'
+import { EditLocation } from './pages/EditLocation'
 
 function handleLogout() {
   logout()
@@ -85,6 +86,9 @@ export function App() {
           </Route>
           <Route exact path="/profile">
             <EditUser />
+          </Route>
+          <Route exact path="/locations/:id/edit">
+            <EditLocation />
           </Route>
         </Switch>
       </main>

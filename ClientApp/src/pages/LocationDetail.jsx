@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom'
 import format from 'date-fns/format'
 import { getUser, authHeader, isLoggedIn } from '../auth'
 
@@ -86,6 +86,13 @@ export function LocationDetail() {
         )}
         {isLoggedIn() && location.userId === user.id && (
           <button onClick={handleDelete}>Delete</button>
+        )}
+        {isLoggedIn() && location.userId === user.id && (
+          <p>
+            <Link className="button" to={`/locations/${id}/edit`}>
+              Edit
+            </Link>
+          </p>
         )}
         {location.reviews.length > 0 && (
           <h3>Reviews htmlFor {location.name}</h3>
