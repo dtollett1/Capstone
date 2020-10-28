@@ -26,19 +26,28 @@ export function MovieDetail() {
   return (
     <>
       <main>
-        <div className="filmhead">
-          <h1>{film.title}</h1>
-          <h2>{film.year}</h2>
+        <div className="filmTitle">
+          <nav className="leftNav">
+            <h1>{film.title}</h1>
+
+            <h2 className="year">{film.year}</h2>
+          </nav>
+        </div>
+        <div className="filmTitle">
           <iframe
+            className="trailer"
             width="560"
             height="315"
             src={film.trailer}
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allow="fullscreen"
           ></iframe>
-          <img src={film.poster} width="210" height="315" />
+          <nav className="rightNav">
+            <img src={film.poster} width="210" height="315" />
+          </nav>
         </div>
+
         <div className="locationsList">
           <h2>Locations</h2>
           <ul>

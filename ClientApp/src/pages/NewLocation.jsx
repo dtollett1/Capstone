@@ -124,78 +124,84 @@ export function NewLocation() {
   return (
     <>
       <main>
-        <h2>Add a Location</h2>
-        <form onSubmit={handleFormSubmit}>
-          {errorMessage && <p>{errorMessage}</p>}
-          <p className="form-input">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={newLocation.name}
-              onChange={handleStringFieldChange}
-            />
-          </p>
-          <p className="form-input">
-            <label htmlFor="description">Description</label>
-            <textarea
-              name="description"
-              value={newLocation.description}
-              onChange={handleStringFieldChange}
-            ></textarea>
-            <span className="note">
-              Enter a Brief description of the Location.
-            </span>
-          </p>
-          <p className="form-input">
-            <label htmlFor="address">Address</label>
-            <textarea
-              name="address"
-              value={newLocation.address}
-              onChange={handleStringFieldChange}
-            ></textarea>
-          </p>
-          <p className="form-input">
-            <label htmlFor="name">Movie</label>
-            {/* <input
+        <div className="container">
+          <h2>Add a Location</h2>
+          <form onSubmit={handleFormSubmit}>
+            {errorMessage && <p>{errorMessage}</p>}
+            <p className="form-input">
+              <label htmlFor="name">Name</label>
+              <input
+                className="textForm"
+                type="text"
+                name="name"
+                value={newLocation.name}
+                onChange={handleStringFieldChange}
+              />
+            </p>
+            <p className="form-input">
+              <label htmlFor="description">Description</label>
+              <textarea
+                className="textForm"
+                name="description"
+                value={newLocation.description}
+                onChange={handleStringFieldChange}
+              ></textarea>
+              <span className="note">
+                Enter a Brief description of the Location.
+              </span>
+            </p>
+            <p className="form-input">
+              <label htmlFor="address">Address</label>
+              <textarea
+                className="textForm"
+                name="address"
+                value={newLocation.address}
+                onChange={handleStringFieldChange}
+              ></textarea>
+            </p>
+            <p className="form-input">
+              <label htmlFor="name">Movie</label>
+              {/* <input
               name="movie"
               value={newLocation.movie}
               onChange={handleStringFieldChange}
             /> */}
-            <select
-              onChange={(event) => {
-                setNewLocation({
-                  ...newLocation,
-                  filmId: parseInt(event.target.value),
-                })
-              }}
-            >
-              {movies.map((movie) => (
-                <option key={movie.id} value={movie.id}>
-                  {movie.title}
-                </option>
-              ))}
-            </select>
-          </p>
-          {newLocation.photoURL && (
-            <p>
-              <img
-                alt="Location Photo"
-                width={200}
-                src={newLocation.photoURL}
-              />
+              <select
+                className="textForm"
+                onChange={(event) => {
+                  setNewLocation({
+                    ...newLocation,
+                    filmId: parseInt(event.target.value),
+                  })
+                }}
+              >
+                {movies.map((movie) => (
+                  <option key={movie.id} value={movie.id}>
+                    {movie.title}
+                  </option>
+                ))}
+              </select>
             </p>
-          )}
-          <div className="file-drop-zone">
-            <div {...getRootProps()}>
-              <input {...getInputProps()} />
-              {dropZoneMessage}
+            {newLocation.photoURL && (
+              <p>
+                <img
+                  alt="Location Photo"
+                  width={200}
+                  src={newLocation.photoURL}
+                />
+              </p>
+            )}
+            <div className="file-drop-zone">
+              <div {...getRootProps()}>
+                <input {...getInputProps()} />
+                {dropZoneMessage}
+              </div>
             </div>
-          </div>
-          <p>
-            <input type="submit" value="submit" />
-          </p>
-        </form>
+            <p>
+              <input className="submit" type="submit" value="submit" />
+            </p>
+          </form>
+        </div>
       </main>
     </>
   )

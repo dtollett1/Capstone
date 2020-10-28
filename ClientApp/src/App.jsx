@@ -25,16 +25,20 @@ export function App() {
         <nav>
           <div className="topnav" id="myTopnav">
             {/* {isLoggedIn() && <p>{user.fullName}</p>} */}
-            <Link to="/home" className="active">
+            <Link to="/" className="active">
               Home
             </Link>
             <Link to="/locations">Locations</Link>
             {isLoggedIn() && <Link to="/new">Add a Location</Link>}
             {isLoggedIn() || <Link to="/signup">Sign Up</Link>}
-            {isLoggedIn() || <Link to="/signin">Sign In</Link>}
+            {isLoggedIn() || (
+              <Link className="signOut" to="/signin">
+                Sign In
+              </Link>
+            )}
             {isLoggedIn() && <Link to="/profile">Profile</Link>}
             {isLoggedIn() && (
-              <Link to="/" onClick={handleLogout}>
+              <Link className="signOut" to="/" onClick={handleLogout}>
                 Sign Out
               </Link>
             )}
@@ -55,7 +59,7 @@ export function App() {
 
       <main className="background">
         <Switch>
-          <Route exact path="/home">
+          <Route exact path="/">
             <Home />
           </Route>
           <Route exact path="/locations">

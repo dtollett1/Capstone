@@ -73,27 +73,38 @@ export function LocationDetail() {
 
   return (
     <>
-      <main className="page">
-        <nav>
-          <h2>{location.name}</h2>
-        </nav>
-        <address>{location.address}</address>
-        <hr />
-        <p>{location.description}</p>
-        <h3>Photos For {location.name} </h3>
-        {location.photoURL && (
-          <img alt="Location Photo" width={200} src={location.photoURL} />
-        )}
-        {isLoggedIn() && location.userId === user.id && (
-          <button onClick={handleDelete}>Delete</button>
-        )}
-        {isLoggedIn() && location.userId === user.id && (
-          <button>
-            <Link className="button" to={`/locations/${id}/edit`}>
-              Edit
-            </Link>
-          </button>
-        )}
+      <main>
+        <div className="locPage">
+          <div className="locTitle">
+            <nav>
+              <h2>{location.name}</h2>
+            </nav>
+          </div>
+          <div className="locAddress">
+            <address>{location.address}</address>
+          </div>
+
+          <hr />
+          <div className="locDesc">
+            <p>{location.description}</p>
+          </div>
+          <div className="locPhotos">
+            <h3>Photos For {location.name} </h3>
+            {location.photoURL && (
+              <img alt="Location Photo" width={200} src={location.photoURL} />
+            )}
+          </div>
+          {isLoggedIn() && location.userId === user.id && (
+            <button className="delete" onClick={handleDelete}>
+              Delete
+            </button>
+          )}
+          {isLoggedIn() && location.userId === user.id && (
+            <button className="edit">
+              <Link to={`/locations/${id}/edit`}>Edit</Link>
+            </button>
+          )}
+        </div>
         {location.reviews.length > 0 && (
           <h3>Reviews htmlFor {location.name}</h3>
         )}
@@ -118,7 +129,7 @@ export function LocationDetail() {
               {isLoggedIn() && review.user.id === user.id && (
                 <div>
                   <button
-                    className="small"
+                    className="submit"
                     onClick={(event) => handleDeleteReview(event, review.id)}
                   >
                     Delete

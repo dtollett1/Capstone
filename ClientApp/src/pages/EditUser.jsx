@@ -111,55 +111,60 @@ export function EditUser() {
   }
 
   return (
-    <main className="page">
-      <nav>
-        <h2>Edit Profile</h2>
-      </nav>
+    <main>
+      <div className="container">
+        <nav>
+          <h2>Edit Profile</h2>
+        </nav>
 
-      <form onSubmit={handleFormSubmit}>
-        {errorMessage && <p>{errorMessage}</p>}
-        <p className="form-input">
-          <label htmlFor="fullName">Name</label>
-          <input
-            type="text"
-            name="fullName"
-            value={updatedUser.fullName}
-            onChange={handleStringFieldChange}
-          />
-        </p>
-        <p className="form-input">
-          <label htmlFor="name">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={updatedUser.email}
-            onChange={handleStringFieldChange}
-          />
-        </p>
-        <p className="form-input">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={updatedUser.password}
-            onChange={handleStringFieldChange}
-          />
-        </p>
-        {updatedUser.photoURL && (
-          <p>
-            <img alt="User Photo" width={200} src={updatedUser.photoURL} />
+        <form onSubmit={handleFormSubmit}>
+          {errorMessage && <p>{errorMessage}</p>}
+          <p className="form-input">
+            <label htmlFor="fullName">Name</label>
+            <input
+              className="textForm"
+              type="text"
+              name="fullName"
+              value={updatedUser.fullName}
+              onChange={handleStringFieldChange}
+            />
           </p>
-        )}
-        <div className="file-drop-zone">
-          <div {...getRootProps()}>
-            <input {...getInputProps()} />
-            {dropZoneMessage}
+          <p className="form-input">
+            <label htmlFor="name">Email</label>
+            <input
+              className="textForm"
+              type="email"
+              name="email"
+              value={updatedUser.email}
+              onChange={handleStringFieldChange}
+            />
+          </p>
+          <p className="form-input">
+            <label htmlFor="password">Password</label>
+            <input
+              className="textForm"
+              type="password"
+              name="password"
+              value={updatedUser.password}
+              onChange={handleStringFieldChange}
+            />
+          </p>
+          {updatedUser.photoURL && (
+            <p>
+              <img alt="User Photo" width={200} src={updatedUser.photoURL} />
+            </p>
+          )}
+          <div className="file-drop-zone">
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              {dropZoneMessage}
+            </div>
           </div>
-        </div>
-        <p>
-          <input type="submit" value="Submit" />
-        </p>
-      </form>
+          <p>
+            <input className="submit" type="submit" value="Submit" />
+          </p>
+        </form>
+      </div>
     </main>
   )
 }

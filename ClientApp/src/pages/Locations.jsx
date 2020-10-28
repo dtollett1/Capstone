@@ -87,6 +87,7 @@ export function Locations() {
         {/* <img className="logo" src={logo} height="200" width="250" /> */}
         <h1 className="category">Locations</h1>
         <input
+          className="search"
           type="text"
           placeholder="Search..."
           value={filterText}
@@ -95,7 +96,7 @@ export function Locations() {
           }}
         />
 
-        <ul className="results">
+        <ul className="locationResults">
           {locations.map((location) => (
             <li key={location.id}>
               <h2>

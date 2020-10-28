@@ -1,0 +1,14 @@
+.map {
+  box-shadow: black;
+  color: black;
+  @include center;
+}
+
+.map {
+  margin: 3rem 3rem 20rem;
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-top: 25rem;
+  // border: blue double;
+}

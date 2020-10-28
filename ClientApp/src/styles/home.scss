@@ -6,7 +6,7 @@
   grid-template-columns: 1fr;
   max-width: 960px;
   gap: 1rem;
-  padding: 1rem;
+  padding: 2rem;
   margin: auto;
   a:link,
   a:visited,
@@ -14,11 +14,13 @@
   a:hover,
   a:active {
     color: #f4f7f5;
+    text-decoration: none;
+    font-family: 'Shrikhand', cursive;
   }
 
   li {
     list-style: none;
-    // text-align: center;
+    text-align: center;
     @include transition();
     padding-right: 1.5rem;
 

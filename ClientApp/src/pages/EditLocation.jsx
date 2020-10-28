@@ -129,66 +129,72 @@ export function EditLocation() {
   }
 
   return (
-    <main className="edit">
-      <nav>
-        <h2>Edit a Location</h2>
-      </nav>
-      <form onSubmit={handleFormSubmit}>
-        {errorMessage && <p>{errorMessage}</p>}
-        <p className="edit">
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            value={location.name}
-            onChange={handleStringFieldChange}
-          />
-        </p>
-        <p className="edit">
-          <label htmlFor="description">Description</label>
-          <textarea
-            name="description"
-            value={location.description}
-            onChange={handleStringFieldChange}
-          ></textarea>
-          <span className="note">
-            Enter a brief description of the location.
-          </span>
-        </p>
-        <p className="form-input">
-          <label htmlFor="name">Address</label>
-          <textarea
-            name="address"
-            value={location.address}
-            onChange={handleStringFieldChange}
-          ></textarea>
-        </p>
-        <p className="form-input">
-          <label htmlFor="name">Telephone</label>
-          <input
-            name="movie"
-            value={location.movie}
-            onChange={handleStringFieldChange}
-          />
-        </p>
-
-        {location.photoURL && (
+    <main>
+      <div className="container">
+        <nav>
+          <h2>Edit a Location</h2>
+        </nav>
+        <form onSubmit={handleFormSubmit}>
+          {errorMessage && <p>{errorMessage}</p>}
           <p>
-            <img alt="Restaurant Photo" width={200} src={location.photoURL} />
+            <label htmlFor="name">Name</label>
+            <input
+              className="textForm"
+              type="text"
+              name="name"
+              value={location.name}
+              onChange={handleStringFieldChange}
+            />
           </p>
-        )}
+          <p>
+            <label htmlFor="description">Description</label>
+            <textarea
+              className="textForm"
+              name="description"
+              value={location.description}
+              onChange={handleStringFieldChange}
+            ></textarea>
+            <span className="note">
+              Enter a brief description of the location.
+            </span>
+          </p>
+          <p className="form-input">
+            <label htmlFor="name">Address</label>
+            <textarea
+              className="textForm"
+              name="address"
+              value={location.address}
+              onChange={handleStringFieldChange}
+            ></textarea>
+          </p>
+          <p className="form-input">
+            <label htmlFor="name">Telephone</label>
+            <input
+              className="textForm"
+              name="movie"
+              value={location.movie}
+              onChange={handleStringFieldChange}
+            />
+          </p>
 
-        <div className="file-drop-zone">
-          <div {...getRootProps()}>
-            <input {...getInputProps()} />
-            {dropZoneMessage}
+          {location.photoURL && (
+            <p>
+              <img alt="Restaurant Photo" width={200} src={location.photoURL} />
+            </p>
+          )}
+
+          <div className="file-drop-zone">
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              {dropZoneMessage}
+            </div>
           </div>
-        </div>
 
-        <p>
-          <input type="submit" value="Submit" />
-        </p>
-      </form>
+          <p>
+            <input className="submit" type="submit" value="Submit" />
+          </p>
+        </form>
+      </div>
     </main>
   )
 }

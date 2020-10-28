@@ -1,0 +1,48 @@
+.filmTitle {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  font-family: 'Shrikhand', cursive;
+  border-bottom: gray solid;
+  margin-bottom: 2rem;
+  font-size: 60px;
+
+  .year {
+    font-size: 30px;
+    @include center;
+  }
+
+  .rightNav {
+    img {
+      border-radius: 1rem;
+    }
+  }
+
+  .filmTitle > * {
+    flex: 1 100%;
+  }
+  @media all and (min-width: 800px) {
+    /* We tell both sidebars to share a row */
+    .aside {
+      flex: 1 auto;
+    }
+  }
+  @media all and (max-width: 600px) {
+    /* We invert order of first sidebar and main
+     * And tell the main element to take twice as much width as the other two sidebars 
+     */
+    .main {
+      flex: 2 0px;
+    }
+    .leftNav {
+      order: 1;
+    }
+    .rightNav {
+      order: 2;
+      display: none;
+    }
+    .trailer {
+      order: 3;
+    }
+  }
+}

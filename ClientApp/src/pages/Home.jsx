@@ -55,7 +55,7 @@ export function Home() {
   )
   return (
     <>
-      <main className="home">
+      <main>
         <h2 className="category">Mapped Locations</h2>
         <section className="map">
           <ReactMapGL
