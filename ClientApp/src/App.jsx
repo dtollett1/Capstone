@@ -24,7 +24,7 @@ export function App() {
       <header className="tophead">
         <nav>
           <div className="topnav" id="myTopnav">
-            {isLoggedIn() && <p>{user.fullName}</p>}
+            {/* {isLoggedIn() && <p>{user.fullName}</p>} */}
             <Link to="/home" className="active">
               Home
             </Link>
@@ -48,17 +48,9 @@ export function App() {
                 />
               </li>
             )}
-
-            <Link
-              to="javascript:void(0);"
-              className="icon"
-              // onclick="myFunction()"
-            >
-              <i className="fa fa-bars"></i>
-            </Link>
           </div>
         </nav>
-        <h1 className="title"></h1>
+        <h1 className="title">On Location</h1>
       </header>
 
       <main className="background">

@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import Axios from 'axios'
 import { useDropzone } from 'react-dropzone'
 
 import { authHeader } from '../auth'
+import { MovieDetail } from './MovieDetail'
 
 export function NewLocation() {
   const [isUploading, setIsUploading] = useState(false)
+
+  const [movies, setMovies] = useState([])
 
   const [errorMessage, setErrorMessage] = useState()
 
@@ -16,7 +19,9 @@ export function NewLocation() {
     address: '',
     movie: '',
     photoURL: '',
+    filmId: 0,
   })
+
   const history = useHistory()
   function handleStringFieldChange(event) {
     const value = event.target.value
@@ -40,9 +45,15 @@ export function NewLocation() {
       if (response.status === 400) {
         setErrorMessage(Object.values(json.errors).join(' '))
       } else {
-        history.push('/')
+        // history.push('/')
       }
     }
+    console.log(newLocation)
+  }
+  async function getMovies() {
+    const response = await fetch('/api/Films')
+    const apiData = response.json()
+    setMovies(await apiData)
   }
 
   async function onDropFile(acceptedFiles) {
@@ -105,6 +116,10 @@ export function NewLocation() {
   if (isDragActive) {
     dropZoneMessage = 'Drop the files here ...'
   }
+  useEffect(() => {
+    getMovies()
+  }, [])
+  console.log(movies)
 
   return (
     <>
@@ -142,11 +157,25 @@ export function NewLocation() {
           </p>
           <p className="form-input">
             <label htmlFor="name">Movie</label>
-            <input
+            {/* <input
               name="movie"
               value={newLocation.movie}
               onChange={handleStringFieldChange}
-            />
+            /> */}
+            <select
+              onChange={(event) => {
+                setNewLocation({
+                  ...newLocation,
+                  filmId: parseInt(event.target.value),
+                })
+              }}
+            >
+              {movies.map((movie) => (
+                <option key={movie.id} value={movie.id}>
+                  {movie.title}
+                </option>
+              ))}
+            </select>
           </p>
           {newLocation.photoURL && (
             <p>

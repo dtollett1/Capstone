@@ -113,9 +113,6 @@ export function EditUser() {
   return (
     <main className="page">
       <nav>
-        <Link to="/">
-          <i className="fa fa-home"></i>
-        </Link>
         <h2>Edit Profile</h2>
       </nav>
 

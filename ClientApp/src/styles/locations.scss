@@ -1,8 +1,9 @@
+@import 'variables';
+@import 'mixins';
+
 .map {
   margin: 3rem 3rem 2rem;
-
   position: relative;
-
   overflow: hidden;
   height: 0;
   padding-top: calc(100% / 1.6);
@@ -37,4 +38,11 @@
   flex-wrap: wrap;
   // justify-content: center;
   // align-items: center;
+}
+.category {
+  @include center;
+  color: #3e92cc;
+  font-size: 80px;
+  font-family: 'Diplomata SC', cursive;
+  text-shadow: 0 0 50px #343a40, 0 0 30px #343a40, 0 0 6px;
 }

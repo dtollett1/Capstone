@@ -88,11 +88,11 @@ export function LocationDetail() {
           <button onClick={handleDelete}>Delete</button>
         )}
         {isLoggedIn() && location.userId === user.id && (
-          <p>
+          <button>
             <Link className="button" to={`/locations/${id}/edit`}>
               Edit
             </Link>
-          </p>
+          </button>
         )}
         {location.reviews.length > 0 && (
           <h3>Reviews htmlFor {location.name}</h3>
@@ -128,7 +128,7 @@ export function LocationDetail() {
             </li>
           ))}
         </ul>
-        <h3>Enter your own review</h3>
+        {/* <h3>Enter your own review</h3>
         <form action="#">
           <p className="form-input">
             <label htmlFor="summary">Summary</label>
@@ -136,9 +136,9 @@ export function LocationDetail() {
             <span className="note">
               Enter a brief summary of your review. Example:{' '}
               <strong>Lorem ipsum, dolor si</strong>
-            </span>
-          </p>
-          <p className="form-input">
+            </span> */}
+        {/* </p> */}
+        {/* <p className="form-input">
             <label htmlFor="review">Review</label>
             <textarea type="text" name="review"></textarea>
           </p>
@@ -209,7 +209,7 @@ export function LocationDetail() {
           <p>
             <input type="submit" value="Submit" />
           </p>
-        </form>
+        </form> */}
       </main>
     </>
   )

@@ -162,6 +162,14 @@ namespace CapstoneProject.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<Location>> PostLocation(Location location)
         {
+
+
+
+
+
+
+
+
             // Create a new geocoder
             var geocoder = new BingMapsGeocoder(BING_MAPS_KEY);
 
@@ -183,6 +191,24 @@ namespace CapstoneProject.Controllers
             // Indicate to the database context we want to add this new record
             _context.Locations.Add(location);
             await _context.SaveChangesAsync();
+
+
+            Console.WriteLine("name: " + location.Name);
+
+            Console.WriteLine("ID: " + location.Id);
+            Console.WriteLine("Address: " + location.Address);
+            Console.WriteLine("UserId: " + location.UserId);
+            Console.WriteLine("Movie: " + location.Movie);
+            Console.WriteLine("Lat: " + location.Latitude);
+            Console.WriteLine("Long: " + location.Longitude);
+            Console.WriteLine("Photo: " + location.PhotoURL);
+            Console.WriteLine("FilmId: " + location.FilmId);
+            Console.WriteLine("Desc: " + location.Description);
+
+            // for (var index = 0; index < location.Reviews.Count; index++)
+            // {
+            //     Console.WriteLine("review: " + location.Reviews[index]);
+            // }
 
             // Return a response that indicates the object was created (status code `201`) and some additional
             // headers with details of the newly created object.

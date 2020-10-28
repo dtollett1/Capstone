@@ -61,7 +61,7 @@ export function EditLocation() {
 
         setErrorMessage(Object.values(json.errors).join(' '))
       } else {
-        history.push('/')
+        history.push('/home')
       }
     }
   }
@@ -129,16 +129,13 @@ export function EditLocation() {
   }
 
   return (
-    <main className="page">
+    <main className="edit">
       <nav>
-        <Link to="/">
-          <i className="fa fa-home"></i>
-        </Link>
         <h2>Edit a Location</h2>
       </nav>
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
-        <p className="form-input">
+        <p className="edit">
           <label htmlFor="name">Name</label>
           <input
             type="text"
@@ -147,7 +144,7 @@ export function EditLocation() {
             onChange={handleStringFieldChange}
           />
         </p>
-        <p className="form-input">
+        <p className="edit">
           <label htmlFor="description">Description</label>
           <textarea
             name="description"

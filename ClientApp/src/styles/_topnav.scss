@@ -1,11 +1,21 @@
+@import 'variables';
+@import 'mixins';
+@import 'basics';
+
 .tophead {
   position: relative;
   overflow: hidden;
-  box-shadow: 5px 10px 100px 5px black;
+  box-shadow: 5px 10px 100px 5px #343a40;
   height: 250px;
   width: auto;
   .title {
-    text-align: center;
+    font-family: 'Monoton', cursive;
+    color: #3e92cc;
+    font-size: 78px;
+    font-style: italic;
+    text-transform: uppercase;
+    text-shadow: 0 0 50px black, 0 0 20px black, 0 0 6px;
+    @include center;
   }
 }
 .tophead::after {

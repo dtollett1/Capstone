@@ -82,10 +82,10 @@ export function Locations() {
           </div>
         </ReactMapGL>
       </section>
-      <nav className="result"></nav>
+
       <div>
         {/* <img className="logo" src={logo} height="200" width="250" /> */}
-        <h1>Locations</h1>
+        <h1 className="category">Locations</h1>
         <input
           type="text"
           placeholder="Search..."

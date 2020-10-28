@@ -56,9 +56,7 @@ export function Home() {
   return (
     <>
       <main className="home">
-        <h1>On Location</h1>
-
-        <h2>Mapped Locations</h2>
+        <h2 className="category">Mapped Locations</h2>
         <section className="map">
           <ReactMapGL
             style={{ position: 'absolute' }}
@@ -103,15 +101,15 @@ export function Home() {
           </ReactMapGL>
         </section>
         <section>
-          <h2>Movies</h2>
-          <input
+          <h2 className="category">Movies</h2>
+          {/* <input
             type="text"
             placeholder="Search..."
             value={filterText}
             onChange={function (event) {
               setFilterText(event.target.value)
             }}
-          />
+          /> */}
           <ul className="movieList">
             {films.map((film) => (
               <li key={film.id}>
