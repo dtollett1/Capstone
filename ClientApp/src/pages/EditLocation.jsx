@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import { useDropzone } from 'react-dropzone'
+import Axios from 'axios'
 
 import { authHeader } from '../auth'
 
@@ -11,6 +12,8 @@ export function EditLocation() {
 
   const [isUploading, setIsUploading] = useState(false)
 
+  const [movies, setMovies] = useState([])
+
   const [errorMessage, setErrorMessage] = useState()
 
   const [location, setLocation] = useState({
@@ -19,6 +22,7 @@ export function EditLocation() {
     address: '',
     movie: '',
     photoURL: '',
+    filmId: 0,
   })
   useEffect(() => {
     fetchLocation()
@@ -64,6 +68,12 @@ export function EditLocation() {
         history.push('/home')
       }
     }
+  }
+
+  async function getMovies() {
+    const response = await fetch('/api/Films')
+    const apiData = response.json()
+    setMovies(await apiData)
   }
 
   async function onDropFile(acceptedFiles) {
@@ -128,6 +138,11 @@ export function EditLocation() {
     return <></>
   }
 
+  // useEffect(() => {
+  //   getMovies()
+  // }, [])
+  // console.log(movies)
+
   return (
     <main>
       <div className="container">
@@ -170,19 +185,25 @@ export function EditLocation() {
             ></textarea>
           </p>
 
-          <p className="form-input">
-            <label htmlFor="name">Telephone</label>
-            <input
-              className="textForm"
-              name="movie"
-              value={location.movie}
-              onChange={handleStringFieldChange}
-            />
-          </p>
+          {/* <select
+            className="textForm"
+            onChange={(event) => {
+              setLocation({
+                ...location,
+                filmId: parseInt(event.target.value),
+              })
+            }}
+          >
+            {movies.map((movie) => (
+              <option key={movie.id} value={movie.id}>
+                {movie.title}
+              </option>
+            ))}
+          </select> */}
 
           {location.photoURL && (
             <p>
-              <img alt="Restaurant Photo" width={200} src={location.photoURL} />
+              <img alt="Location Photo" width={200} src={location.photoURL} />
             </p>
           )}
 

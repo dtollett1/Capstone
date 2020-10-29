@@ -56,11 +56,11 @@ export function Home() {
   return (
     <>
       <main>
-        {/* <div className="category">
+        <div className="category">
           <h2>Mapped Locations</h2>
-        </div> */}
+        </div>
 
-        {/* <section className="map">
+        <section className="map">
           <ReactMapGL
             style={{ position: 'absolute' }}
             {...viewport}
@@ -102,7 +102,7 @@ export function Home() {
               <NavigationControl />
             </div>
           </ReactMapGL>
-        </section> */}
+        </section>
         <div className="category">
           <h2>Movies</h2>
         </div>

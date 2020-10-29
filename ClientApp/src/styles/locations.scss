@@ -12,21 +12,9 @@
     grid-template-columns: 1fr;
     max-width: 960px;
     gap: 1rem;
-    padding: 1rem;
-    margin: auto;
+    // padding: 3rem;
+    margin: 2rem;
   }
   list-style: none;
-  // text-align: center;
-  display: grid;
-  flex-direction: column;
-  flex-wrap: wrap;
-  // justify-content: center;
-  // align-items: center;
+  padding-left: 0;
 }
-// .category {
-//   @include center;
-//   color: #3e92cc;
-//   font-size: 80px;
-//   font-family: 'Diplomata SC', cursive;
-//   text-shadow: 0 0 50px #343a40, 0 0 30px #343a40, 0 0 6px;
-// }

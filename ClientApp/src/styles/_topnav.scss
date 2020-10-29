@@ -12,12 +12,17 @@
   .title {
     font-family: 'Monoton', cursive;
     color: #3e92cc;
-    font-size: 5vw;
+    font-size: 3vw;
     font-style: italic;
     text-transform: uppercase;
-    text-shadow: 0 0 50px black, 0 0 20px black, 0 0 6px;
+    text-shadow: 0 0 50px blue, 0 0 20px black, 0 0 6px;
     @include center;
-    margin-top: 2rem;
+    //   margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 .tophead::after {

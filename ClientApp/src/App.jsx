@@ -22,28 +22,32 @@ export function App() {
   return (
     <>
       <header className="tophead">
-        <nav>
-          <div className="topnav" id="myTopnav">
-            {/* {isLoggedIn() && <p>{user.fullName}</p>} */}
-            <Link to="/" className="active">
-              Home
+        <div className="title">
+          <h1>OnLocation</h1>
+        </div>
+      </header>
+      <nav>
+        <div className="topnav" id="myTopnav">
+          {/* {isLoggedIn() && <p>{user.fullName}</p>} */}
+          <Link to="/" className="active">
+            Home
+          </Link>
+          <Link to="/locations">Locations</Link>
+          {isLoggedIn() && <Link to="/new">Add a Location</Link>}
+          {isLoggedIn() || <Link to="/signup">Sign Up</Link>}
+          {isLoggedIn() || (
+            <Link className="signOut" to="/signin">
+              Sign In
             </Link>
-            <Link to="/locations">Locations</Link>
-            {isLoggedIn() && <Link to="/new">Add a Location</Link>}
-            {isLoggedIn() || <Link to="/signup">Sign Up</Link>}
-            {isLoggedIn() || (
-              <Link className="signOut" to="/signin">
-                Sign In
-              </Link>
-            )}
-            {isLoggedIn() && <Link to="/profile">Profile</Link>}
-            {isLoggedIn() && (
-              <Link className="signOut" to="/" onClick={handleLogout}>
-                Sign Out
-              </Link>
-            )}
+          )}
+          {isLoggedIn() && <Link to="/profile">Profile</Link>}
+          {isLoggedIn() && (
+            <Link className="signOut" to="/" onClick={handleLogout}>
+              Sign Out
+            </Link>
+          )}
 
-            {/* {isLoggedIn() && user.photoURL && (
+          {/* {isLoggedIn() && user.photoURL && (
               <li className="avatar">
                 <img
                   src={user.photoURL}
@@ -53,12 +57,8 @@ export function App() {
                 />
               </li>
             )} */}
-          </div>
-        </nav>
-        <div className="title">
-          <h1>On Location</h1>
         </div>
-      </header>
+      </nav>
 
       <main className="background">
         <Switch>
