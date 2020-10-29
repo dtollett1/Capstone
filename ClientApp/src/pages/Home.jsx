@@ -62,7 +62,7 @@ export function Home() {
 
         <section className="map">
           <ReactMapGL
-            style={{ position: 'absolute' }}
+            // style={{ position: 'absolute' }}
             {...viewport}
             onViewportChange={setViewport}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
@@ -76,7 +76,7 @@ export function Home() {
                 onClose={() => setSelectedMapLocation(null)}
                 offsetTop={-5}
               >
-                <div>
+                <div className="popup">
                   <p>{selectedMapLocation.name}</p>
                   <p>{selectedMapLocation.description}</p>
                 </div>

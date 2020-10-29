@@ -41,9 +41,11 @@
   z-index: -1;
 }
 
+.topnav {
+  display: flex;
+}
 /* Style the links inside the navigation bar */
 .topnav a {
-  float: left;
   display: block;
   color: #d9d7dd;
   text-align: center;

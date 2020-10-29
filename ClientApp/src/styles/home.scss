@@ -42,6 +42,7 @@
   font-size: 2vw;
   font-family: 'Diplomata SC', cursive;
   text-shadow: 0 0 50px #343a40, 0 0 30px #343a40, 0 0 6px;
+  @include center;
 }
 @media (min-width: 600px) {
   .movieList {

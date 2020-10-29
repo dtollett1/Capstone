@@ -5,10 +5,16 @@
 }
 
 .map {
-  margin: 3rem 3rem 20rem;
-  position: relative;
-  overflow: hidden;
-  height: 0;
-  padding-top: 25rem;
+  margin: 2rem 2rem 2rem;
+  // position: relative;
+  // overflow: hidden;
+  // height: 0;
+  // padding-top: 25rem;
   // border: blue double;
+}
+
+.popup {
+  font-size: 1vh;
+  display: flex;
+  justify-content: center;
 }

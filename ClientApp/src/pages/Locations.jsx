@@ -55,7 +55,7 @@ export function Locations() {
               onClose={() => setSelectedMapLocation(null)}
               offsetTop={-5}
             >
-              <div>
+              <div className="popup">
                 <p>{selectedMapLocation.name}</p>
                 <p>{selectedMapLocation.description}</p>
               </div>
