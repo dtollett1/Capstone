@@ -50,7 +50,7 @@ export function MovieDetail() {
 
         <div className="locationsList">
           <h2>Locations</h2>
-          <ul>
+          <ul className="locationResults">
             {film.locations.map((location) => (
               <li key={location.id} className="results">
                 <h2>

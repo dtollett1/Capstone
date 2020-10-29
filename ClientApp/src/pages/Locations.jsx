@@ -83,19 +83,19 @@ export function Locations() {
         </ReactMapGL>
       </section> */}
 
+      <div className="category">
+        <h1>Locations</h1>
+      </div>
+      <input
+        className="search"
+        type="text"
+        placeholder="Search..."
+        value={filterText}
+        onChange={function (event) {
+          setFilterText(event.target.value)
+        }}
+      />
       <div>
-        {/* <img className="logo" src={logo} height="200" width="250" /> */}
-        <h1 className="category">Locations</h1>
-        <input
-          className="search"
-          type="text"
-          placeholder="Search..."
-          value={filterText}
-          onChange={function (event) {
-            setFilterText(event.target.value)
-          }}
-        />
-
         <ul className="locationResults">
           {locations.map((location) => (
             <li key={location.id}>
@@ -103,14 +103,7 @@ export function Locations() {
                 <Link to={`/locations/${location.id}`}>{location.name}</Link>
               </h2>
               {/* <img src={map} height="200" width="200" /> */}
-              <p>
-                <span
-                  className="stars"
-                  style={{ '--rating': 4.5 }}
-                  aria-label="Star rating of this location is 4.7 out of 5"
-                ></span>
-                ({location.reviews.length})
-              </p>
+
               <p className="description">{location.description}</p>
               <address>{location.address}</address>
             </li>
