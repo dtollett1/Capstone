@@ -39,7 +39,7 @@ export function Locations() {
 
   return (
     <>
-      <section className="map">
+      {/* <section className="map">
         <ReactMapGL
           style={{ position: 'absolute' }}
           {...viewport}
@@ -81,7 +81,7 @@ export function Locations() {
             <NavigationControl />
           </div>
         </ReactMapGL>
-      </section>
+      </section> */}
 
       <div>
         {/* <img className="logo" src={logo} height="200" width="250" /> */}

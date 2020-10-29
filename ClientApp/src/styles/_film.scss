@@ -5,10 +5,12 @@
   font-family: 'Shrikhand', cursive;
   border-bottom: gray solid;
   margin-bottom: 2rem;
-  font-size: 60px;
+  margin-left: 30px;
+  margin-right: 30px;
+  font-size: 2vw;
 
   .year {
-    font-size: 30px;
+    font-size: 2vw;
     @include center;
   }
 

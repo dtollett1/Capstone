@@ -19,10 +19,9 @@
   width: 130px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 .search:focus {
   width: 100%;
-}
-.signOut {
-  border-bottom-right-radius: 0.8rem;
 }

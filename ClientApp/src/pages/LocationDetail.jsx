@@ -105,7 +105,7 @@ export function LocationDetail() {
             </button>
           )}
         </div>
-        {location.reviews.length > 0 && (
+        {/* {location.reviews.length > 0 && (
           <h3>Reviews htmlFor {location.name}</h3>
         )}
         {location.reviews.length}({location.reviews.length})
@@ -113,7 +113,7 @@ export function LocationDetail() {
           {location.reviews.map((review) => (
             <li key={review.id}>
               <div className="author">
-                Gavin said: <em>{review.summary}</em>
+                <em>{review.summary}</em>
               </div>
               <div className="body">
                 <p>{review.body}</p>
@@ -138,7 +138,7 @@ export function LocationDetail() {
               )}
             </li>
           ))}
-        </ul>
+        </ul> */}
         {/* <h3>Enter your own review</h3>
         <form action="#">
           <p className="form-input">
