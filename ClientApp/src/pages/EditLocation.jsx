@@ -136,6 +136,7 @@ export function EditLocation() {
         </nav>
         <form onSubmit={handleFormSubmit}>
           {errorMessage && <p>{errorMessage}</p>}
+
           <p>
             <label htmlFor="name">Name</label>
             <input
@@ -146,6 +147,7 @@ export function EditLocation() {
               onChange={handleStringFieldChange}
             />
           </p>
+
           <p>
             <label htmlFor="description">Description</label>
             <textarea
@@ -167,6 +169,7 @@ export function EditLocation() {
               onChange={handleStringFieldChange}
             ></textarea>
           </p>
+
           <p className="form-input">
             <label htmlFor="name">Telephone</label>
             <input

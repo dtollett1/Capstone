@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useRef } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 
 import './styles/custom.scss'
@@ -42,7 +42,8 @@ export function App() {
                 Sign Out
               </Link>
             )}
-            {isLoggedIn() && user.photoURL && (
+
+            {/* {isLoggedIn() && user.photoURL && (
               <li className="avatar">
                 <img
                   src={user.photoURL}
@@ -51,10 +52,12 @@ export function App() {
                   width="64"
                 />
               </li>
-            )}
+            )} */}
           </div>
         </nav>
-        <h1 className="title">On Location</h1>
+        <div className="title">
+          <h1>On Location</h1>
+        </div>
       </header>
 
       <main className="background">

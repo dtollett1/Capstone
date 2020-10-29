@@ -31,6 +31,8 @@
     img {
       box-shadow: 0 2px 50px -2px #343a40;
       border-radius: 0.5rem;
+      width: 100%;
+      height: auto;
     }
   }
 }
@@ -38,9 +40,13 @@
 .category {
   @include center;
   color: #3e92cc;
-  font-size: 80px;
+  font-size: 4vw;
   font-family: 'Diplomata SC', cursive;
   text-shadow: 0 0 50px #343a40, 0 0 30px #343a40, 0 0 6px;
+  img {
+    width: 10%;
+    height: auto;
+  }
 }
 @media (min-width: 600px) {
   .movieList {
@@ -56,5 +62,7 @@
 @media (min-width: 1360px) {
   .movieList {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    img {
+    }
   }
 }

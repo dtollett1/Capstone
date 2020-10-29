@@ -56,8 +56,11 @@ export function Home() {
   return (
     <>
       <main>
-        <h2 className="category">Mapped Locations</h2>
-        <section className="map">
+        {/* <div className="category">
+          <h2>Mapped Locations</h2>
+        </div> */}
+
+        {/* <section className="map">
           <ReactMapGL
             style={{ position: 'absolute' }}
             {...viewport}
@@ -99,10 +102,11 @@ export function Home() {
               <NavigationControl />
             </div>
           </ReactMapGL>
-        </section>
-        <section>
-          <h2 className="category">Movies</h2>
-          {/* <input
+        </section> */}
+        <div className="category">
+          <h2>Movies</h2>
+        </div>
+        {/* <input
             type="text"
             placeholder="Search..."
             value={filterText}
@@ -110,22 +114,16 @@ export function Home() {
               setFilterText(event.target.value)
             }}
           /> */}
-          <ul className="movieList">
-            {films.map((film) => (
-              <li key={film.id}>
-                <img
-                  src={film.poster}
-                  width="210"
-                  height="315"
-                  alt={film.title}
-                ></img>
-                <h2>
-                  <Link to={`/films/${film.id}`}>{film.title}</Link>
-                </h2>
-              </li>
-            ))}
-          </ul>
-        </section>
+        <ul className="movieList">
+          {films.map((film) => (
+            <li key={film.id}>
+              <img src={film.poster} alt={film.title}></img>
+              <h2>
+                <Link to={`/films/${film.id}`}>{film.title}</Link>
+              </h2>
+            </li>
+          ))}
+        </ul>
       </main>
     </>
   )

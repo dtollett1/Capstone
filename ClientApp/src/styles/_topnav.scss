@@ -8,14 +8,16 @@
   box-shadow: 5px 10px 100px 5px #343a40;
   height: 250px;
   width: auto;
+
   .title {
     font-family: 'Monoton', cursive;
     color: #3e92cc;
-    font-size: 78px;
+    font-size: 5vw;
     font-style: italic;
     text-transform: uppercase;
     text-shadow: 0 0 50px black, 0 0 20px black, 0 0 6px;
     @include center;
+    margin-top: 2rem;
   }
 }
 .tophead::after {
@@ -59,15 +61,15 @@
   display: none;
 }
 
-@media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {
-    display: none;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
+// @media screen and (max-width: 900px) {
+//   .topnav a:not(:first-child) {
+//     display: none;
+//   }
+//   .topnav a.icon {
+//     float: right;
+//     display: block;
+//   }
+// }
 
 @media screen and (max-width: 600px) {
   .topnav.responsive {
