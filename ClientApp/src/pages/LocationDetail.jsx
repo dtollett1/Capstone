@@ -3,7 +3,7 @@ import { useParams, useHistory, Link } from 'react-router-dom'
 import format from 'date-fns/format'
 import { getUser, authHeader, isLoggedIn } from '../auth'
 
-const dateFormat = `EEEE, MMMM do, yyyy 'at' h:mm aaa`
+// const dateFormat = `EEEE, MMMM do, yyyy 'at' h:mm aaa`
 
 export function LocationDetail() {
   const history = useHistory()
@@ -19,14 +19,14 @@ export function LocationDetail() {
     address: '',
     movie: '',
     photoURL: '',
-    reviews: [],
+    // reviews: [],
   })
 
-  const [newReview, setNewReview] = useState({
-    body: '',
-    summary: '',
-    locationId: id,
-  })
+  // const [newReview, setNewReview] = useState({
+  //   body: '',
+  //   summary: '',
+  //   locationId: id,
+  // })
 
   async function fetchLocation() {
     const response = await fetch(`/api/Locations/${id}`)

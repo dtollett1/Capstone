@@ -22,13 +22,15 @@ export function App() {
   return (
     <>
       <header className="tophead">
+        <div className="welcome">
+          {isLoggedIn() && <p> Welcome {user.fullName}!</p>}
+        </div>
         <div className="title">
           <h1>OnLocation</h1>
         </div>
       </header>
       <nav>
         <div className="topnav" id="myTopnav">
-          {/* {isLoggedIn() && <p>{user.fullName}</p>} */}
           <Link to="/" className="active">
             Home
           </Link>

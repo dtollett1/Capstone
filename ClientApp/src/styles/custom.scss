@@ -6,6 +6,7 @@
 @import 'map';
 @import 'forms';
 @import 'film';
+@import 'locDetail';
 
 body {
   margin: 0;
@@ -20,6 +21,15 @@ body {
   padding-top: 4rem;
 
   color: #f4f7f5;
+}
+
+.welcome {
+  @include center;
+  font-family: 'Shrikhand', cursive;
+  color: white;
+  font-size: 20px;
+  border: 0;
+  padding-left: 1rem;
 }
 
 // footer {
