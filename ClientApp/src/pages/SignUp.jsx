@@ -46,22 +46,16 @@ export function SignUp() {
     }
   }
   async function onDropFile(acceptedFiles) {
-    // Do something with the files
     const fileToUpload = acceptedFiles[0]
     console.log(fileToUpload)
 
-    // Create a formData object so we can send this
-    // to the API that is expecting som form data.
     const formData = new FormData()
 
-    // Append a field that is the form upload itself
     formData.append('file', fileToUpload)
 
     try {
       setIsUploading(true)
 
-      // Use fetch to send an authorization header and
-      // a body containing the form data with the file
       const response = await fetch('/api/Uploads', {
         method: 'POST',
         headers: {
@@ -72,10 +66,6 @@ export function SignUp() {
 
       setIsUploading(false)
 
-      // If we receive a 200 OK response, set the
-      // URL of the photo in our state so that it is
-      // sent along when creating the user,
-      // otherwise show an error
       if (response.status === 200) {
         const apiResponse = await response.json()
 
@@ -86,7 +76,6 @@ export function SignUp() {
         setErrorMessage('Unable to upload image')
       }
     } catch (error) {
-      // Catch any network errors and show the user we could not process their upload
       console.debug(error)
       setErrorMessage('Unable to upload image')
       setIsUploading(false)
@@ -111,7 +100,7 @@ export function SignUp() {
             <p>Please fill in this form to create an account.</p>
 
             {errorMessage && <p>{errorMessage}</p>}
-            <label for="fullName">
+            <label>
               <b>Full Name</b>
             </label>
             <input
@@ -122,7 +111,7 @@ export function SignUp() {
               onChange={handleStringFieldChange}
               required
             />
-            <label for="email">
+            <label>
               <b>Email</b>
             </label>
             <input
@@ -133,7 +122,7 @@ export function SignUp() {
               onChange={handleStringFieldChange}
             />
 
-            <label for="psw">
+            <label>
               <b>Password</b>
             </label>
             <input
@@ -156,16 +145,11 @@ export function SignUp() {
               </div>
             </div>
 
-            <label>
-              <input type="checkbox" checked="checked" name="remember" />{' '}
-              Remember me
-            </label>
-
             <div className="clearfix">
-              <button type="button" className="cancelbtn">
+              <button type="button" className="cancelButton">
                 Cancel
               </button>
-              <button type="submit" className="signupbtn">
+              <button type="submit" className="signupButton">
                 Sign Up
               </button>
             </div>

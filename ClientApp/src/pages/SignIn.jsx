@@ -43,12 +43,9 @@ export function SignIn() {
     <>
       <section className="signIn">
         <form onSubmit={handleFormSubmit} method="post">
-          {/* <div className="imgcontainer">
-            <img src="img_avatar2.png" alt="Avatar" className="avatar" />
-          </div> */}
           {errorMessage && <p>{errorMessage}</p>}
           <div className="container">
-            <label for="uname">
+            <label>
               <b>Email</b>
             </label>
             <input
@@ -60,7 +57,7 @@ export function SignIn() {
               onChange={handleStringFieldChange}
             />
 
-            <label for="psw">
+            <label>
               <b>Password</b>
             </label>
             <input
@@ -73,20 +70,7 @@ export function SignIn() {
             />
 
             <button type="submit">Login</button>
-            <label>
-              <input type="checkbox" checked="checked" name="remember" />{' '}
-              Remember me
-            </label>
           </div>
-
-          {/* <div className="container">
-            <button type="button" className="cancelbtn">
-              Cancel
-            </button>
-            <span className="psw">
-              Forgot <a href="#">password?</a>
-            </span>
-          </div> */}
         </form>
       </section>
     </>
