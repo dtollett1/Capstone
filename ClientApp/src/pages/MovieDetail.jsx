@@ -40,8 +40,7 @@ export function MovieDetail() {
             height="315"
             src={film.trailer}
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allow="fullscreen"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
           ></iframe>
           <nav className="rightNav">
             <img src={film.poster} width="210" height="315" />

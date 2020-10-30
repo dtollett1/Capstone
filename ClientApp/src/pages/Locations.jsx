@@ -3,8 +3,6 @@ import axios from 'axios'
 import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 
-import logo from '../images/onlocation.png'
-import map from '../images/map.png'
 import '../styles/locations.scss'
 
 export function Locations() {
