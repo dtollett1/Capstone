@@ -11,7 +11,7 @@ export function NewLocation() {
 
   const [movies, setMovies] = useState([])
 
-  const [errorMessage, setErrorMessage] = useState()
+  const [errorMessage, setErrorMessage] = useState('')
 
   const [newLocation, setNewLocation] = useState({
     name: '',
@@ -50,12 +50,22 @@ export function NewLocation() {
     }
     console.log(newLocation)
   }
-  async function getMovies() {
-    const response = await fetch('/api/Films')
-    const apiData = response.json()
-    setMovies(await apiData)
+  function getMovies() {
+    // const response = await fetch('/api/Films')
+    // const apiData = response.json()
+    // setMovies(await apiData)
+    // setNewLocation({ ...newLocation, filmId: apiData[0].id })
+    // console.log(apiData)
+    fetch('/api/Films')
+      .then((response) => {
+        return response.json()
+      })
+      .then((apiData) => {
+        setMovies(apiData)
+        setNewLocation({ ...newLocation, filmId: apiData[0].id })
+      })
   }
-
+  console.log(newLocation)
   async function onDropFile(acceptedFiles) {
     const fileToUpload = acceptedFiles[0]
     console.log(fileToUpload)

@@ -9,7 +9,7 @@ export function SignUp() {
   const history = useHistory()
   const [isUploading, setIsUploading] = useState(false)
 
-  const [errorMessage, setErrorMessage] = useState()
+  const [errorMessage, setErrorMessage] = useState('')
 
   const [newUser, setNewUser] = useState({
     fullName: '',
