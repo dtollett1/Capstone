@@ -15,6 +15,7 @@ import { EditLocation } from './pages/EditLocation'
 
 function handleLogout() {
   logout()
+  window.location.assign('/')
 }
 const user = getUser()
 

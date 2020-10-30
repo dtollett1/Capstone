@@ -128,7 +128,7 @@ export function NewLocation() {
           <h2>Add a Location</h2>
           <form onSubmit={handleFormSubmit}>
             {errorMessage && <p>{errorMessage}</p>}
-            <p className="form-input">
+            <p>
               <label htmlFor="name">Name</label>
               <input
                 className="textForm"
@@ -138,7 +138,7 @@ export function NewLocation() {
                 onChange={handleStringFieldChange}
               />
             </p>
-            <p className="form-input">
+            <p>
               <label htmlFor="description">Description</label>
               <textarea
                 className="textForm"
@@ -150,14 +150,14 @@ export function NewLocation() {
                 Enter a Brief description of the Location.
               </span>
             </p>
-            <p className="form-input">
+            <p>
               <label htmlFor="address">Address</label>
-              <textarea
+              <input
                 className="textForm"
                 name="address"
                 value={newLocation.address}
                 onChange={handleStringFieldChange}
-              ></textarea>
+              ></input>
             </p>
             <p className="form-input">
               <label htmlFor="name">Movie</label>

@@ -117,9 +117,11 @@ export function Home() {
         <ul className="movieList">
           {films.map((film) => (
             <li key={film.id}>
-              <img src={film.poster} alt={film.title}></img>
               <h2>
-                <Link to={`/films/${film.id}`}>{film.title}</Link>
+                <Link to={`/films/${film.id}`}>
+                  <img src={film.poster} alt={film.title}></img>
+                  {/* {film.title} */}
+                </Link>
               </h2>
             </li>
           ))}

@@ -52,6 +52,7 @@ export function SignIn() {
               <b>Email</b>
             </label>
             <input
+              className="signIn"
               type="text"
               placeholder="Enter Email"
               name="email"
@@ -63,6 +64,7 @@ export function SignIn() {
               <b>Password</b>
             </label>
             <input
+              className="signIn"
               type="password"
               placeholder="Enter Password"
               name="password"
