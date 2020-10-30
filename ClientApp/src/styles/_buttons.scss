@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .submit {
   background-color: #3e92cc;
   color: white;
@@ -14,8 +16,9 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 15%;
+  width: 100%;
   display: flex;
+  @include center;
 }
 
 .edit {
@@ -24,8 +27,9 @@
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
-  width: 15%;
+  width: 100%;
   display: flex;
+  @include center;
 
   cursor: pointer;
   a:link,

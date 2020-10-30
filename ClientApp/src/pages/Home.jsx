@@ -14,9 +14,9 @@ export function Home() {
 
   const [viewport, setViewport] = useState({
     width: 650,
-    // 327
+
     height: 530,
-    // 264
+
     latitude: 27.77101804911986,
     longitude: -82.66090611749074,
     zoom: 9.8,
@@ -62,7 +62,6 @@ export function Home() {
 
         <section className="map">
           <ReactMapGL
-            // style={{ position: 'absolute' }}
             {...viewport}
             onViewportChange={setViewport}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
@@ -106,21 +105,13 @@ export function Home() {
         <div className="category">
           <h2>Movies</h2>
         </div>
-        {/* <input
-            type="text"
-            placeholder="Search..."
-            value={filterText}
-            onChange={function (event) {
-              setFilterText(event.target.value)
-            }}
-          /> */}
+
         <ul className="movieList">
           {films.map((film) => (
             <li key={film.id}>
               <h2>
                 <Link to={`/films/${film.id}`}>
                   <img src={film.poster} alt={film.title}></img>
-                  {/* {film.title} */}
                 </Link>
               </h2>
             </li>

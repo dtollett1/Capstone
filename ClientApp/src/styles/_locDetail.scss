@@ -1,8 +1,30 @@
+@import 'mixins';
+
 .locPage {
   .locTitle {
     font-family: 'Shrikhand', cursive;
+    @include center;
   }
   .locDesc {
     font-family: 'Raleway', sans-serif;
+    @include center;
   }
+  .locAddress {
+    font-family: 'Raleway', sans-serif;
+    @include center;
+  }
+  .locPhotos {
+    font-family: 'Shrikhand', cursive;
+    @include center;
+  }
+}
+
+.containerDetail {
+  border-radius: 5px;
+  background-color: #343a40;
+  padding: 20px;
+  // margin-left: 2rem;
+  // margin-right: 2rem;
+  width: 100%;
+  @include center;
 }

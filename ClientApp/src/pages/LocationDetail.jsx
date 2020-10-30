@@ -19,6 +19,7 @@ export function LocationDetail() {
     address: '',
     movie: '',
     photoURL: '',
+    userId: [],
     // reviews: [],
   })
 
@@ -94,17 +95,20 @@ export function LocationDetail() {
               <img alt="Location Photo" width={200} src={location.photoURL} />
             )}
           </div>
-          {isLoggedIn() && location.userId === user.id && (
-            <button className="delete" onClick={handleDelete}>
-              Delete
-            </button>
-          )}
+        </div>
+        <div className="containerDetail">
           {isLoggedIn() && location.userId === user.id && (
             <button className="edit">
               <Link to={`/locations/${id}/edit`}>Edit</Link>
             </button>
           )}
+          {isLoggedIn() && location.userId === user.id && (
+            <button className="delete" onClick={handleDelete}>
+              Delete
+            </button>
+          )}
         </div>
+
         {/* {location.reviews.length > 0 && (
           <h3>Reviews htmlFor {location.name}</h3>
         )}
